@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->bigInteger('phonenumber');
             $table->string('email',100)->nullable();
             $table->string('role',100);
+            $table->string('profile',500);
             $table->timestamps();
         });
     }

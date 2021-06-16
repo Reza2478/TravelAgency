@@ -189,31 +189,57 @@
                             <table>
                                 <tbody>
                                     <tr>
+                                        <th>شماره </th>
                                         <th>مبدا </th>
                                         <th>مقصد</th>
+                                        <th>مبلغ</th>
                                         <th>تاریخ رفت</th>
                                         <th>تاریخ برگشت</th>
-                                        <th>لغو بلیط</th>
+                                        <th>تگ</th>
+                                        <th>تصویر</th>
+                                        <th>حذف</th>
+                                        <th>ویرایش </th>
                                     </tr>
+                                    @foreach ($tour as $item)
                                     <tr>
                                         <td>
                                             <div>
-                                                تهران
+                                             {{$item->tour_id}}
                                             </div>
                                         </td>
                                         <td>
                                             <div>
-                                                مشهد
+                                                {{$item->from}}
                                             </div>
                                         </td>
                                         <td>
                                             <div>
-                                                <p>2 / 4 / 1400</p>
+                                                {{$item->to}}
                                             </div>
                                         </td>
                                         <td>
                                             <div>
-                                                <p>10 / 4 / 1400</p>
+                                                {{$item->amount}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                {{$item->departuredate}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                               {{$item->returndate}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                               {{$item->tag}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                               {{$item->image}}
                                             </div>
                                         </td>
                                         <td>
@@ -221,225 +247,113 @@
                                                 <a><img src="assets/images/delete.png" alt="" width="40" /></a>
                                             </div>
                                         </td>
-                                    </tr>
-                                    <tr>
                                         <td>
                                             <div>
-                                                تهران
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                                مشهد
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                                <p>2 / 4 / 1400</p>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                                <p>10 / 4 / 1400</p>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                                <a><img src="assets/images/delete.png" alt="" width="40" /></a>
+                                                <a><img src="assets/images/edit.png" alt="" width="23" /></a>
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            <div>
-                                                تهران
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                                مشهد
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                                <p>2 / 4 / 1400</p>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                                <p>10 / 4 / 1400</p>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                                <a><img src="assets/images/delete.png" alt="" width="40" /></a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div>
-                                                تهران
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                                مشهد
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                                <p>2 / 4 / 1400</p>
-    
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                                <p>10 / 4 / 1400</p>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                                <a><img src="assets/images/delete.png" alt="" width="40" /></a>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
-                    </div>
+                        </div>
             </section>
-            
-                <div class="jobs">
-                    <h2>بلیط های خریداری شده</h2>
-                    <!-- <h2>Jobs <small>See all jobs <span class="las la-arrow-left"></span></small></h2> -->
-                    <div class="table-responsive">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <th>مبدا </th>
-                                    <th>مقصد</th>
-                                    <th>تاریخ رفت</th>
-                                    <th>تاریخ برگشت</th>
-                                    <th>لغو بلیط</th>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div>
-                                            تهران
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            مشهد
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <p>2 / 4 / 1400</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <p>10 / 4 / 1400</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <a><img src="assets/images/delete.png" alt="" width="40" /></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div>
-                                            تهران
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            مشهد
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <p>2 / 4 / 1400</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <p>10 / 4 / 1400</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <a><img src="assets/images/delete.png" alt="" width="40" /></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div>
-                                            تهران
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            مشهد
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <p>2 / 4 / 1400</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <p>10 / 4 / 1400</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <a><img src="assets/images/delete.png" alt="" width="40" /></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div>
-                                            تهران
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            مشهد
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <p>2 / 4 / 1400</p>
 
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <p>10 / 4 / 1400</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <a><img src="assets/images/delete.png" alt="" width="40" /></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+            <section style="margin-top: 10px;">
+                <div class="jobs-grid">
+                    <div class="jobs">
+                        <h2>کاربران</h2>
+                        <!-- <h2>Jobs <small>See all jobs <span class="las la-arrow-left"></span></small></h2> -->
+                        <div class="table-responsive">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th>شماره </th>
+                                        <th>نام کاربری </th>
+                                        <th>پسورد</th>
+                                        <th>نام</th>
+                                        <th>نام خانوادگی</th>
+                                        <th>اعتبار</th>
+                                        <th>شماره موبایل</th>
+                                        <th>ایمیل</th>
+                                        <th>نقش</th>
+                                        <th>تصویر </th>
+                                        <th>حذف</th>
+                                        <th>ویرایش</th>
+                                    </tr>
+                                    @foreach ($user as $item)
+                                    <tr>
+                                        <td>
+                                            <div>
+                                             {{$item->user_id}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                {{$item->username}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                {{$item->password}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                {{$item->firstname}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                {{$item->lastname}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                               {{$item->credit}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                               {{$item->phonenumber}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                               {{$item->email}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                               {{$item->role}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                               {{$item->profile}}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <a><img src="assets/images/delete.png" alt="" width="40" /></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <a><img src="assets/images/edit.png" alt="" width="23" /></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+            </section>
 
-                    </div>
-                </div>
 
-            </div>
-            
-        </main>
+    </div>
+
+    </main>
 
     </div>
     <label for="sidebar-toggle" class="bode-label">

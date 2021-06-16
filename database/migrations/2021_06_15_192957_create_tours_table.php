@@ -20,8 +20,9 @@ class CreateToursTable extends Migration
             $table->bigInteger('amount');
             $table->string('departuredate',100);
             $table->string('returndate',100);
-            $table->boolean('lastmoment');
             $table->string('tag',100);
+            $table->string('image',500);
+            $table->boolean('lastmoment');
             $table->timestamps();
         });
     }
