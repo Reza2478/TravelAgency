@@ -14,14 +14,13 @@ class CreateTimelinesTable extends Migration
     public function up()
     {
         Schema::create('timelines', function (Blueprint $table) {
-            $table->increments('timeline_id');
-            $table->integer('staytime');
-            $table->string('services',100);
-            $table->string('visit',100);
-            $table->string('hotel',100);
-            $table->string('travelcompany',100);
+            $table->increments('id');
+            $table->string('routewent',500);
+            $table->string('routeback',500);
+            $table->string('timewent',100);
+            $table->string('timeback',100);
             $table->unsignedInteger('tour_id');
-            $table->foreign('tour_id')->references('tour_id')->on('tours')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('tour_id')->references('id')->on('tours')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

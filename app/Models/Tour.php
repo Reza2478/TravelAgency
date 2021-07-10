@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tour extends Model
 {
-    protected $primaryKey = 'tour_id';
+    public function timelines()
+    {
+        return $this->hasOne('App\Models\Timeline');
+    }
+    public function users()
+    {
+        return $this->belongsToMany('App\User');
+    }
     use HasFactory;
 }

@@ -14,7 +14,7 @@ class CreateToursTable extends Migration
     public function up()
     {
         Schema::create('tours', function (Blueprint $table) {
-            $table->increments('tour_id');
+            $table->increments('id');
             $table->string('from',100);
             $table->string('to',100);
             $table->bigInteger('amount');
@@ -24,6 +24,10 @@ class CreateToursTable extends Migration
             $table->string('image',500);
             $table->boolean('lastmoment');
             $table->string('type',20);
+            $table->integer('staytime');
+            $table->string('services',100);
+            $table->string('hotel',100);
+            $table->string('travelcompany',100);
             $table->timestamps();
         });
     }

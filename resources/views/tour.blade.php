@@ -164,7 +164,7 @@
                                 <h2>تور هوایی {{ $item->to }}</h2>
                                 <h4><i class="fa fa-map-marker"></i>مبدا : {{ $item->from }}</h4>
                                 <h4><i class="fa fa-map-marker"></i>مقصد : {{ $item->to }}</h4>
-                                <a class="price"><i class="fas fa-dollar-sign"></i>450000 تومان</a>
+                                <a class="price" id="myBtn"><i class="fas fa-dollar-sign"></i>450000 تومان</a>
                             </div>
                         </article>
                     @endforeach

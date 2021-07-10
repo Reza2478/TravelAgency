@@ -238,13 +238,43 @@
                                 @endif
                                 <h4><i class="fa fa-map-marker"></i>مبدا : {{ $item->from }}</h4>
                                 <h4><i class="fa fa-map-marker"></i>مقصد : {{ $item->to }}</h4>
-                                <a href="#" class="more">نمایش کامل</a>
+                                <a class="more" id="myBtn">نمایش کامل</a>
                             </figcaption>
                         </figure>
+
                     @break($item->tour_id == 4)
                     @endforeach
                 </div>
                 <a href="tour" class="show-more">نمایش همه</a>
+                <div id="myModal" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span class="close">&times;</span>
+                            <h2>Modal Header</h2>
+                        </div>
+                        <div class="modal-body">
+                            <article>
+                                <div class="post">
+                                    <div class="right">
+                                        <img src="{{ $item->image }}" alt="#">
+                                    </div>
+                                    @if ($item->type === 'train')
+                                        <h2>تور قطار {{ $item->to }}</h2>
+                                    @elseif ($item->type === 'bus')
+                                        <h2>تور اتوبوس {{ $item->to }}</h2>
+                                    @endif
+                                    <h4><i class="fa fa-map-marker"></i>مبدا : {{ $item->from }}</h4>
+                                    <h4><i class="fa fa-map-marker"></i>مقصد : {{ $item->to }}</h4>
+                                    <a class="price"><i class="fas fa-dollar-sign"></i>{{ $item->amount }} تومان</a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="modal-footer">
+                            <h3>Modal Footer</h3>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -431,6 +461,35 @@
       </div>
    </footer> -->
     <script src="assets/js/index.js"></script>
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+    </script>
+
 </body>
 
 </html>
