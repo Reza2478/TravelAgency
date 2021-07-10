@@ -227,9 +227,15 @@
                 <div class="grid wow animated fadeIn">
                     @foreach ($tour as $item)
                         <figure>
-                            <img src="{{ $item->image }}" alt="">
+                            <img src="{{ $item->image }}" alt="#">
                             <figcaption>
-                                <h2>تور {{ $item->to }}</h2>
+                                @if ($item->type === 'airplane')
+                                    <h2>تور هوایی {{ $item->to }}</h2>
+                                @elseif ($item->type === 'train')
+                                    <h2>تور قطار {{ $item->to }}</h2>
+                                @elseif ($item->type === 'bus')
+                                    <h2>تور اتوبوس {{ $item->to }}</h2>
+                                @endif
                                 <h4><i class="fa fa-map-marker"></i>مبدا : {{ $item->from }}</h4>
                                 <h4><i class="fa fa-map-marker"></i>مقصد : {{ $item->to }}</h4>
                                 <a href="#" class="more">نمایش کامل</a>
@@ -350,7 +356,7 @@
                         </div>
                     @endforeach
 
-                    
+
                 </div>
             </div>
         </div>

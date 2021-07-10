@@ -15,4 +15,10 @@ class AdminController extends Controller
         $user=User::all();
         return view('admin',compact('tour','user'));
     }
+    public function delete($id)
+    {
+        $temp=Tour::find($id);
+        $temp->delete();
+        return back()->with('status','Deleted successfuly!');
+    }
 }

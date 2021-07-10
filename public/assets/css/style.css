@@ -746,12 +746,12 @@ figure.pushup figcaption {
 figure.pushup figcaption h2{
     font-size: 25px;
     padding-bottom: 10px;
-    text-shadow:0 2px 3px rgba(0,0,0,0.3)  
+    text-shadow:0 2px 3px rgba(0,0,0,0.3)
 }
 figure.pushup figcaption h4{
     padding-bottom: 10px;
     text-align: right;
-    text-shadow:0 2px 3px rgba(0,0,0,0.1)  
+    text-shadow:0 2px 3px rgba(0,0,0,0.1)
 }
 figure.pushup figcaption i{
     margin-left: 5px;
@@ -761,7 +761,7 @@ figure.pushup:hover img {
 	-webkit-transform: translate3d(0, -20px, 0);
 	transform: translate3d(0, -20px, 0);
     opacity: .5;
- 
+
 }
 
 figure.pushup:hover figcaption{
@@ -836,7 +836,7 @@ footer input[type='email'],
 footer textarea{
     background-color: transparent;
     border-color: var(--text);
-    color: var(--text);   
+    color: var(--text);
 }
 footer input[type='email']:hover,
 footer input[type='email']:focus{
@@ -868,13 +868,13 @@ footer textarea:focus{
     color: var(--hover);
 }
 footer input[type='submit']:hover{
-    background-color: var(--hover);  
+    background-color: var(--hover);
 }
 footer .social{
     display: grid;
     margin-block: 16px;
     grid-template-columns: repeat(5,1fr);
-    grid-gap: 16px;    
+    grid-gap: 16px;
 }
 footer .social i{
     font-size: 32px;
@@ -948,7 +948,7 @@ footer .notice strong{
     left: 0;
     width: 150px;
     border-radius: 5px;
-    display: none;    
+    display: none;
 }
 .dropdown-list ul.active{
     display: block;
@@ -1026,7 +1026,7 @@ footer .notice strong{
 
 .tour .post {
     width:49%;
-    height: 190px;
+    height: 150px;
     margin:10px auto;
     margin-left: 9px;
     position:relative;
@@ -1071,7 +1071,7 @@ footer .notice strong{
 .tour .post h4 {
     display:table;
     font-size:15px;
-    padding: 8px 10px 0 0;
+    padding: 15px 10px 0 0;
     color:#fff;
 }
 .tour .post h4 i,

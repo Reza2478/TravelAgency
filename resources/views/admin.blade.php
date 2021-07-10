@@ -189,75 +189,101 @@
                             <table>
                                 <tbody>
                                     <tr>
-                                        <th>شماره </th>
+
                                         <th>مبدا </th>
                                         <th>مقصد</th>
                                         <th>مبلغ</th>
                                         <th>تاریخ رفت</th>
                                         <th>تاریخ برگشت</th>
                                         <th>تگ</th>
+                                        <th>نوع</th>
                                         <th>تصویر</th>
                                         <th>حذف</th>
                                         <th>ویرایش </th>
                                     </tr>
                                     @foreach ($tour as $item)
-                                    <tr>
-                                        <td>
-                                            <div>
-                                             {{$item->tour_id}}
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                                {{$item->from}}
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                                {{$item->to}}
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                                {{$item->amount}}
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                                {{$item->departuredate}}
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                               {{$item->returndate}}
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                               {{$item->tag}}
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                               {{$item->image}}
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                                <a><img src="assets/images/delete.png" alt="" width="40" /></a>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                                <a><img src="assets/images/edit.png" alt="" width="23" /></a>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    {{ $item->from }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    {{ $item->to }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    {{ $item->amount }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    {{ $item->departuredate }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    {{ $item->returndate }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    {{ $item->tag }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    {{ $item->type }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    {{ $item->image }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <a href="{{ url('admin', $item->tour_id) }}"><img
+                                                            src="assets/images/delete.png" alt="" width="40" /></a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <a><img src="assets/images/edit.png" alt="" width="23" /></a>
+                                                </div>
+                                            </td>
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                         </div>
             </section>
+
+            <div class="form_add" style="margin-top: 10px">
+                <h2>افزودن کاربر جدید</h2>
+                <form method="POST" action="addbook.php">
+
+                    <label>مبدا :</label><br>
+                    <input type="text"><br>
+                    <lable>مقصد :</lable><br>
+                    <input type="text"><br>
+                    <label>مبلغ :</label><br>
+                    <input type="text"><br>
+                    <label>تاریخ رفت :</label><br>
+                    <input type="text"><br>
+                    <label>تاریخ برگشت :</label><br>
+                    <input type="text"><br>
+                    <label>تگ :</label><br>
+                    <input type="text"><br>
+                    <label>نوع :</label><br>
+                    <input type="text"><br>
+                    <label>تصویر :</label><br>
+                    <input type="text"><br>
+                    <input type="submit" class="submit" value="ثبت">
+                </form>
+            </div>
 
             <section style="margin-top: 10px;">
                 <div class="jobs-grid">
@@ -268,7 +294,6 @@
                             <table>
                                 <tbody>
                                     <tr>
-                                        <th>شماره </th>
                                         <th>نام کاربری </th>
                                         <th>پسورد</th>
                                         <th>نام</th>
@@ -282,78 +307,71 @@
                                         <th>ویرایش</th>
                                     </tr>
                                     @foreach ($user as $item)
-                                    <tr>
-                                        <td>
-                                            <div>
-                                             {{$item->user_id}}
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                                {{$item->username}}
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                                {{$item->password}}
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                                {{$item->firstname}}
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                                {{$item->lastname}}
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                               {{$item->credit}}
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                               {{$item->phonenumber}}
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                               {{$item->email}}
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                               {{$item->role}}
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                               {{$item->profile}}
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                                <a><img src="assets/images/delete.png" alt="" width="40" /></a>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div>
-                                                <a><img src="assets/images/edit.png" alt="" width="23" /></a>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    {{ $item->username }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    {{ $item->password }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    {{ $item->firstname }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    {{ $item->lastname }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    {{ $item->credit }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    {{ $item->phonenumber }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    {{ $item->email }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    {{ $item->role }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    {{ $item->profile }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <a><img src="assets/images/delete.png" alt="" width="40" /></a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <a><img src="assets/images/edit.png" alt="" width="23" /></a>
+                                                </div>
+                                            </td>
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                </div>
             </section>
-
-
-    </div>
-
-    </main>
+        </main>
 
     </div>
     <label for="sidebar-toggle" class="bode-label">

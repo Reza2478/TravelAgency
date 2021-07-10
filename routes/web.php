@@ -14,5 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [App\Http\Controllers\Home\HomeController::class, 'index']);
-Route::get('/tour', [App\Http\Controllers\Tour\TourController::class, 'index']);
-Route::get('/admin', [App\Http\Controllers\Admin\AdminController::class, 'index']);
+Route::get('tour', [App\Http\Controllers\Tour\TourController::class, 'index']);
+Route::get('admin', [App\Http\Controllers\Admin\AdminController::class, 'index']);
+Route::get('admin/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete']);
+

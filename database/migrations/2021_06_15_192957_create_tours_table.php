@@ -23,6 +23,7 @@ class CreateToursTable extends Migration
             $table->string('tag',100);
             $table->string('image',500);
             $table->boolean('lastmoment');
+            $table->string('type',20);
             $table->timestamps();
         });
     }
