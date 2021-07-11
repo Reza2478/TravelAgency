@@ -238,7 +238,7 @@
                                 @endif
                                 <h4><i class="fa fa-map-marker"></i>مبدا : {{ $item->from }}</h4>
                                 <h4><i class="fa fa-map-marker"></i>مقصد : {{ $item->to }}</h4>
-                                <a class="more" id="myBtn">نمایش کامل</a>
+                                <a href="{{ url('tourdetail', $item->id) }}" class="more" id="myBtn">نمایش کامل</a>
                             </figcaption>
                         </figure>
 
@@ -246,35 +246,6 @@
                     @endforeach
                 </div>
                 <a href="tour" class="show-more">نمایش همه</a>
-                <div id="myModal" class="modal">
-                    <!-- Modal content -->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <span class="close">&times;</span>
-                            <h2>Modal Header</h2>
-                        </div>
-                        <div class="modal-body">
-                            <article>
-                                <div class="post">
-                                    <div class="right">
-                                        <img src="{{ $item->image }}" alt="#">
-                                    </div>
-                                    @if ($item->type === 'train')
-                                        <h2>تور قطار {{ $item->to }}</h2>
-                                    @elseif ($item->type === 'bus')
-                                        <h2>تور اتوبوس {{ $item->to }}</h2>
-                                    @endif
-                                    <h4><i class="fa fa-map-marker"></i>مبدا : {{ $item->from }}</h4>
-                                    <h4><i class="fa fa-map-marker"></i>مقصد : {{ $item->to }}</h4>
-                                    <a class="price"><i class="fas fa-dollar-sign"></i>{{ $item->amount }} تومان</a>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="modal-footer">
-                            <h3>Modal Footer</h3>
-                        </div>
-                    </div>
-                </div>
 
             </div>
         </div>

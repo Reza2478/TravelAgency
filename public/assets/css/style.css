@@ -1168,115 +1168,221 @@ footer .notice strong {
 }
 
 /****************************tour-detail************************************/
-
-.project-landing .modal {
-    display: none;
-    /* Hidden by default */
-    position: fixed;
-    /* Stay in place */
-    z-index: 1000;
-    /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%;
-    /* Full width */
-    height: 100%;
-    /* Full height */
-    overflow: auto;
-    /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0);
-    /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
-    -webkit-animation-name: fadeIn;
-    /* Fade in the background */
-    -webkit-animation-duration: 0.4s;
-    animation-name: fadeIn;
-    animation-duration: 0.4s
+.content_panel {
+    width: 1100px;
+    margin: 0 auto;
 }
 
-/* Modal Content */
-
-.modal-content {
-    position:fixed;
-    bottom:50%;
-    background-color: #fefefe;
+.panel {
     width: 100%;
-    -webkit-animation-name: slideIn;
-    -webkit-animation-duration: 0.4s;
-    animation-name: slideIn;
-    animation-duration: 0.4s
-}
-
-/* The Close Button */
-
-.close {
-    color: white;
     float: right;
-    font-size: 28px;
-    font-weight: bold;
+    position: relative;
+    display: table;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
+
 }
 
-.close:hover, .close:focus {
-    color: #000;
-    text-decoration: none;
+.panel .panel_buy {
+    width: 70%;
+    height: 100%;
+    float: left;
+    background-color: rgb(233, 239, 240);
+}
+.info,.timeline
+{
+    width: 100%;
+    float: right;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.info ul li,.timeline ul li
+{
+
+    padding-top: 10px;
+    margin-right: 10px;
+}
+.panel .panel_information .titr
+{
+    width: 100%;
+    float: right;
+    margin-top: 20px;
+    font-size: 20px;
+
+}
+.panel_information .price{
+    background-color: #25a65b;
+    color: #fff;
+    bottom: 0;
+    left: 0;
+    padding: 3px 15px;
+    font-size: 14px;
+    line-height: 2;
+    cursor: pointer;
+    font-family: 'academy';
+    margin-top: 20px;
+}
+
+.panel .panel_information .titr h1
+{
+    color:#fff;
+    font-size: 40px;
+}
+.panel .panel_buy .titr hr{
+    width: 200px;
+    margin-top: 10px;
+}
+
+.panel .panel_information {
+    width: 30%;
+    height: 100%;
+    float: right;
+    background-color: #E74C3C;
+    position: absolute;
+}
+
+.panel .parent_panel {
+    width: 300px;
+    display: table;
+    background-color:#222;
+}
+
+.panel .parent_panel .text_panel {
+    margin-top: 85px;
+    display: inline;
+    color: #fff;
+}
+
+.panel .parent_panel .text_panel h1 {
+    font-size: 40px;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
+
+}
+
+.panel .parent_panel .text_panel h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+    margin-top: 85px;
+
+}
+.panel .parent_panel .information
+{
+    margin-top: 30px;
+    color:#fff;
+}
+.panel .parent_panel .information ul li{
+    padding: 10px;
+}
+
+.panel .panel_buy .grid .figure_parent {
+
+    width: 25%;
+    height: auto;
+    position: relative;
+    float: right;
+    margin: 4px;
+
+}
+
+.panel .panel_buy .grid {
+    width: 100%;
+    height: auto;
+    float: right;
+    margin-right: 75px;
+}
+
+.image_content {
+    width: 100%;
+    position: relative;
+}
+
+.panel .panel_buy .grid .figure_parent figure .image_content {
+    background: #333;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+
+}
+
+.panel .panel_buy .grid .figure_parent figure .image_content img {
+    display: block;
+    opacity: 0.8;
+    transition: all .3s ease-in-out;
+
+}
+
+.panel .panel_buy .grid .figure_parent figure .image_content:hover img {
+    transform: rotate(2deg) scale(1.1);
+    transition: all .3s ease-in-out;
+}
+
+.panel .panel_buy .grid .figure_parent figure figcaption {
+    color: #fff;
+    background-color: #E74C3C;
+    margin-top: 5px;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+    backface-visibility: hidden;
+    border-radius: 2px;
+}
+
+.panel .panel_buy .grid .figure_parent figure figcaption h1 {
+    padding: 5px;
+    font-size: 20px;
+}
+
+.panel .panel_buy .grid .figure_parent figure figcaption h2 {
+    padding: 5px;
+    font-size: 13px;
+}
+
+.panel .panel_buy .grid .twice ul {
+    padding-right: 118px;
+    padding-bottom: 6px;
+}
+
+.panel .panel_buy .grid .twice ul li {
+    float: right;
+
+}
+
+.panel .panel_buy .grid .twice ul li a {
+    width: 63px;
+    display: inline-block;
+    padding: 1px 6px;
+    font-size: 11px;
+    border-radius: 4px;
+    line-height: 2;
+    text-align: center;
+    color: #fff;
+    background-color: #25a65b;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.55);
+    margin-top: 4px;
+}
+.panel .panel_buy .grid .twice input{
+    width: 63px;
+    float: left;
+    font-family: 'academy';
+    display: inline-block;
+    font-size: 11px;
+    border-radius: 4px;
+    line-height: 2;
+    text-align: center;
+    color: #fff;
+    background-color: #25a65b;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.55);
+    margin-top: 4px;
+    margin-left: 6px;
     cursor: pointer;
 }
 
-.modal-header {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
+
+.panel .panel_buy .grid .twice ul li a:hover {
+    background-color: rgba(0, 0, 0, 0.15);
+    transition: all .3s ease-in-out;
 }
 
-.modal-body {
-    padding: 2px 16px;
-}
-
-.modal-footer {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
-}
-
-/* Add Animation */
-
-@-webkit-keyframes slideIn {
-    from {
-        bottom: -500px;
-        opacity: 0
-    }
-    to {
-        bottom: 0;
-        opacity: 1
-    }
-}
-
-@keyframes slideIn {
-    from {
-        bottom: -500px;
-        opacity: 0
-    }
-    to {
-        bottom: 0;
-        opacity: 1
-    }
-}
-
-@-webkit-keyframes fadeIn {
-    from {
-        opacity: 0
-    }
-    to {
-        opacity: 1
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0
-    }
-    to {
-        opacity: 1
-    }
-}
