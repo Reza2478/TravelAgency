@@ -34,59 +34,7 @@
 </head>
 
 <body>
-    <div style="display:none">
-        <div class="signup" id="open">
-            <h3><i class="fa fa-user"></i> قوانین وب سایت</h3>
-            <div class="text" id="cloud">
-                <p>
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها
-                    و
-                    متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و
-                    کاربردهای
-                    متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت
-                    فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیستری را برای طراحان رایانه ای و فرهنگ
-                    پیشرو
-                    در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و
-                    شرایط
-                    سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل
-                    دنیای
-                    موجود طراحی اساسا مورد استفاده قرار گیرد.
-                </p>
-            </div>
-            <h3><i class="fa fa-user"></i> ثبت نام</h3>
-            <form action="">
-                <input type="text" placeholder="نام کاربری">
-                <input type="text" placeholder="پست الکترونیک">
-                <input type="password" placeholder="رمز عبور">
-                <h3><i class="fa fa-heart"></i> علاقه مندی </h3>
-                <div class="interest">
-                    <input type="checkbox" value="مشهد" id="tour1">
-                    <label for="tour1">مشهد</label>
-                    <input type="checkbox" value="اصفهان" id="tour2">
-                    <label for="tour2">اصفهان</label>
-                    <input type="checkbox" value="تبریز" id="tour3">
-                    <label for="tour3">تبریز</label>
-                    <input type="checkbox" value="قشم" id="tour4">
-                    <label for="tour4">قشم</label>
-                    <input type="checkbox" value="شیراز" id="tour5">
-                    <label for="tour5">شیراز</label>
-                    <input type="checkbox" value="یزد" id="tour6">
-                    <label for="tour6">یزد</label>
-                </div>
-                <input type="submit" value="ثبت نام">
-            </form>
-        </div>
-    </div>
-    <div style="display:none">
-        <div class="signup" id="opens">
-            <h3><i class="fa fa-user"></i> ورود </h3>
-            <form action="">
-                <input type="text" placeholder="نام کاربری">
-                <input type="password" placeholder="رمز عبور">
-                <input type="submit" value="ورود">
-            </form>
-        </div>
-    </div>
+
     <header>
         <div class="cover">
             <div class="landing-cover wow animated zoomIn">
@@ -95,16 +43,20 @@
                         <li>آژانس مسافرتی گردشگری</li>
                     </ul>
                 </div>
-                <div class="twice">
-                    <ul>
-                        <li>
-                            <a class="project inline" href="#open">ثبت نام</a>
-                        </li>
-                        <li>
-                            <a class="project inline" href="#opens">ورود</a>
-                        </li>
-                    </ul>
-                </div>
+                @guest
+                    <div class="twice">
+                        <ul>
+                            <li>
+                                <a class="project" href="/register">ثبت نام</a>
+                            </li>
+                            <li>
+                                <a class="project" href="/login">ورود</a>
+                            </li>
+                        </ul>
+                    </div>
+                @else
+                    <p>خوش آمدید</p>
+                @endguest
             </div>
             <ul class="rslides">
                 <li><img alt="" src="assets/images/cover/cover1.jpg"></li>
@@ -177,7 +129,6 @@
                                 فقط کافیست در هر ساعت از شبانه روز با شماره 33143 – 026 تماس بگیرید!
                             </p>
                         </li>
-
                     </ul>
                 </div>
             </div>

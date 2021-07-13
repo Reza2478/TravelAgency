@@ -26,7 +26,6 @@
             <div class="content_panel">
                 <div class="panel">
                     <div class="panel_buy">
-
                         <!-- <img src="images/login1.jpg" alt="" > -->
                         <div class="info">
                             <h2>اطلاعات تور</h2>

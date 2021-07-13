@@ -19,11 +19,11 @@ class CreateUsersTable extends Migration
             $table->string('password',100);
             $table->string('firstname',100);
             $table->string('lastname',100);
-            $table->bigInteger('credit');
+            $table->string('email',500);
+            $table->bigInteger('credit')->default('200000');
             $table->bigInteger('phonenumber');
             $table->timestamp('email_verifed_at')->nullable();
-            $table->string('role',100);
-            $table->string('profile',500);
+            $table->string('role',100)->default('user');
             $table->rememberToken();
             $table->timestamps();
         });

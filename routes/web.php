@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\Tour\TourController;
+use App\Http\Controllers\Tour\TourdetailController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\User\UserAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +18,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\Home\HomeController::class, 'index']);
-Route::get('tour', [App\Http\Controllers\Tour\TourController::class, 'index']);
-Route::get('tourdetail/{id}', [App\Http\Controllers\Tour\TourdetailController::class, 'index']);
-Route::get('admin', [App\Http\Controllers\Admin\AdminController::class, 'index']);
-Route::get('admin/{id}', [App\Http\Controllers\Admin\AdminController::class, 'delete']);
+Route::get('/', [HomeController::class, 'index']);
+Route::get('tour', [TourController::class, 'index']);
+Route::get('tourdetail/{id}', [TourdetailController::class, 'index']);
+Route::get('admin', [AdminController::class, 'index']);
+Route::get('admin/{id}', [AdminController::class, 'delete']);
+Route::get('user', [UserAuthController::class, 'index']);
 
+
+
+
+
+Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
