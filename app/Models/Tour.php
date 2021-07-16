@@ -7,13 +7,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tour extends Model
 {
+    protected $fillable = [
+        'from',
+        'to',
+        'amount',
+        'capacity',
+        'departuredate',
+        'returndate',
+        'timewent',
+        'timeback',
+        'tag',
+        'type',
+        'services',
+        'hotel',
+        'travelcompany',
+        'image'
+    ];
     public function timelines()
     {
-        return $this->hasOne('App\Models\Timeline');
-    }
-    public function users()
-    {
-        return $this->belongsToMany('App\User');
+        return $this->hasMany('App\Models\Timeline');
     }
     use HasFactory;
 }

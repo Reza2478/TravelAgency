@@ -18,11 +18,14 @@ class CreateToursTable extends Migration
             $table->string('from',100);
             $table->string('to',100);
             $table->bigInteger('amount');
+            $table->bigInteger('capacity');
             $table->string('departuredate',100);
             $table->string('returndate',100);
+            $table->string('timewent',100);
+            $table->string('timeback',100);
             $table->string('tag',100);
             $table->string('image',500);
-            $table->boolean('lastmoment');
+            $table->boolean('sale')->default(0);
             $table->string('type',20);
             $table->integer('staytime');
             $table->string('services',100);

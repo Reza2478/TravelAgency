@@ -7,6 +7,8 @@ use App\Http\Controllers\Tour\TourdetailController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\User\UserAuthController;
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,9 +26,11 @@ Route::get('tourdetail/{id}', [TourdetailController::class, 'index']);
 Route::get('admin', [AdminController::class, 'index']);
 Route::get('admin/{id}', [AdminController::class, 'delete']);
 Route::get('user', [UserAuthController::class, 'index']);
-
-
-
+Route::post('user/edit', [UserAuthController::class, 'edit_interest']);
+Route::get('user/{id}/buy', [TourdetailController::class, 'buy']);
+Route::get('user/{id}/cancel', [UserAuthController::class, 'cancel']);
+Route::get('addtour', [AdminController::class, 'show']);
+Route::post('addtour/insert', [AdminController::class, 'insert']);
 
 
 Auth::routes();

@@ -11,7 +11,7 @@ class HomeController extends Controller
     public function index()
     {
         $tour=Tour::all();
-        $lastmoment=Tour::where('lastmoment', '=', 1)->get();
-        return view('index',compact('tour','lastmoment'));
+        $sale=Tour::where('sale', '=', 1)->get();
+        return view('index',compact('tour','sale'));
     }
 }

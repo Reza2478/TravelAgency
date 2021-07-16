@@ -176,24 +176,31 @@
                 </div>
                 <hr>
                 <div class="grid wow animated fadeIn">
+                    @php
+                        $counter=0;
+                    @endphp
                     @foreach ($tour as $item)
-                        <figure>
-                            <img src="{{ $item->image }}" alt="#">
-                            <figcaption>
-                                @if ($item->type === 'airplane')
-                                    <h2>تور هوایی {{ $item->to }}</h2>
-                                @elseif ($item->type === 'train')
-                                    <h2>تور قطار {{ $item->to }}</h2>
-                                @elseif ($item->type === 'bus')
-                                    <h2>تور اتوبوس {{ $item->to }}</h2>
-                                @endif
-                                <h4><i class="fa fa-map-marker"></i>مبدا : {{ $item->from }}</h4>
-                                <h4><i class="fa fa-map-marker"></i>مقصد : {{ $item->to }}</h4>
-                                <a href="{{ url('tourdetail', $item->id) }}" class="more" id="myBtn">نمایش کامل</a>
-                            </figcaption>
-                        </figure>
-
-                    @break($item->tour_id == 4)
+                    @if ($item->sale!=1)
+                    <p style="display:none;">{{$counter++}}</p>
+                    <figure>
+                        <img src="{{ $item->image }}" alt="#">
+                        <figcaption>
+                            @if ($item->type === 'airplane')
+                                <h2>تور هوایی {{ $item->to }}</h2>
+                            @elseif ($item->type === 'train')
+                                <h2>تور قطار {{ $item->to }}</h2>
+                            @elseif ($item->type === 'bus')
+                                <h2>تور اتوبوس {{ $item->to }}</h2>
+                            @endif
+                            <h4><i class="fa fa-map-marker"></i>مبدا : {{ $item->from }}</h4>
+                            <h4><i class="fa fa-map-marker"></i>مقصد : {{ $item->to }}</h4>
+                            <a href="{{ url('tourdetail', $item->id) }}" class="more" id="myBtn">نمایش کامل</a>
+                        </figcaption>
+                    </figure>
+                    @else
+                        <p>آیتمی وجود ندارد</p>
+                    @endif
+                    @break($counter == 4)
                     @endforeach
                 </div>
                 <a href="tour" class="show-more">نمایش همه</a>
@@ -289,11 +296,11 @@
         <div class="customer-landing" id="section-6">
             <div class="wrapper">
                 <div class="featured-title">
-                    <h3>تورهای لحظه آخری</h3>
+                    <h3>تورهای تخفیفی</h3>
                 </div>
                 <hr>
                 <div id="owl-demo" class="wow animated fadeIn">
-                    @foreach ($lastmoment as $item)
+                    @foreach ($sale as $item)
                         <div class="item">
                             <a href="#">
                                 <figure class="figurefx pushup">

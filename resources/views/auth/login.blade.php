@@ -26,7 +26,7 @@
         <div class="parent-form">
             <h3><i class="fa fa-user"></i>ورود</h3>
             <div class="login">
-                <form action="/register" method="post">
+                <form action="/login" method="post">
                     @csrf
                     <label for="username">
                         <b>نام کاربری</b>

@@ -183,13 +183,12 @@
             <section style="margin-top: 10px;">
                 <div class="jobs-grid">
                     <div class="jobs">
-                        <h2>بلیط های خریداری شده</h2>
+                        <h2>بلیط های آسان گشت</h2>
                         <!-- <h2>Jobs <small>See all jobs <span class="las la-arrow-left"></span></small></h2> -->
                         <div class="table-responsive">
                             <table>
                                 <tbody>
                                     <tr>
-
                                         <th>مبدا </th>
                                         <th>مقصد</th>
                                         <th>مبلغ</th>
@@ -261,29 +260,7 @@
                         </div>
             </section>
 
-            <div class="form_add" style="margin-top: 10px">
-                <h2>افزودن کاربر جدید</h2>
-                <form method="POST" action="addbook.php">
-
-                    <label>مبدا :</label><br>
-                    <input type="text"><br>
-                    <lable>مقصد :</lable><br>
-                    <input type="text"><br>
-                    <label>مبلغ :</label><br>
-                    <input type="text"><br>
-                    <label>تاریخ رفت :</label><br>
-                    <input type="text"><br>
-                    <label>تاریخ برگشت :</label><br>
-                    <input type="text"><br>
-                    <label>تگ :</label><br>
-                    <input type="text"><br>
-                    <label>نوع :</label><br>
-                    <input type="text"><br>
-                    <label>تصویر :</label><br>
-                    <input type="text"><br>
-                    <input type="submit" class="submit" value="ثبت">
-                </form>
-            </div>
+            <a href="/addtour">افزودن تور</a>
 
             <section style="margin-top: 10px;">
                 <div class="jobs-grid">
@@ -294,28 +271,20 @@
                             <table>
                                 <tbody>
                                     <tr>
-                                        <th>نام کاربری </th>
-                                        <th>پسورد</th>
+                                        <th>نام کاربری</th>
                                         <th>نام</th>
                                         <th>نام خانوادگی</th>
                                         <th>اعتبار</th>
                                         <th>شماره موبایل</th>
                                         <th>ایمیل</th>
                                         <th>نقش</th>
-                                        <th>تصویر </th>
                                         <th>حذف</th>
-                                        <th>ویرایش</th>
                                     </tr>
                                     @foreach ($user as $item)
                                         <tr>
                                             <td>
                                                 <div>
                                                     {{ $item->username }}
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    {{ $item->password }}
                                                 </div>
                                             </td>
                                             <td>
@@ -350,17 +319,7 @@
                                             </td>
                                             <td>
                                                 <div>
-                                                    {{ $item->profile }}
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
                                                     <a><img src="assets/images/delete.png" alt="" width="40" /></a>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <a><img src="assets/images/edit.png" alt="" width="23" /></a>
                                                 </div>
                                             </td>
                                         </tr>

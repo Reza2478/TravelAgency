@@ -219,11 +219,11 @@
         <div class="customer-landing" id="section-4">
             <div class="wrapper">
                 <div class="featured-title">
-                    <h3>تورهای لحظه آخری</h3>
+                    <h3>تورهای تخفیفی</h3>
                 </div>
                 <hr>
                 <div id="owl-demo" class="wow animated fadeIn">
-                    @foreach ($lastmoment as $item)
+                    @foreach ($sale as $item)
                         <div class="item">
                             <a href="#">
                                 <figure class="figurefx pushup">

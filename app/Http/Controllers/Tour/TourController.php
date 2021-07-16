@@ -11,9 +11,10 @@ class TourController extends Controller
     public function index()
     {
         $tour=Tour::all();
-        $airplane=Tour::where('type', '=', 'airplane')->get();
-        $earth=Tour::where('type', '!=', 'airplane')->get();
-        $lastmoment=Tour::where('lastmoment', '=', 1)->get();
-        return view('tour',compact('tour','airplane','earth','lastmoment'));
+        $airplane=Tour::where([['type', '=', 'airplane'],['sale','!=',1]])->get();
+        $earth=Tour::where([['type', '!=', 'airplane'],['sale','!=',1]])->get();
+        $sale=Tour::where('sale', '=', 1)->get();
+        return view('tour',compact('tour','airplane','earth','sale'));
     }
+
 }

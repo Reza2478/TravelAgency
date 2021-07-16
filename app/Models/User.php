@@ -13,7 +13,7 @@ class User extends Authenticatable
 
     public function purchases()
     {
-        return $this->hasMany('App\Models\Purchase');
+        return $this->belongsToMany('App\Models\Purchase');
     }
     public function interests()
     {

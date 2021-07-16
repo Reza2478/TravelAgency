@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Purchase extends Model
 {
+    protected $fillable = [
+        'tour_id',
+        'track'
+    ];
+    public function tour()
+    {
+        return $this->belongsTo('App\Models\Tour','tour_id','id');
+    }
     use HasFactory;
 }
