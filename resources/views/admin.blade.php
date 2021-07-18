@@ -45,6 +45,13 @@
                     <h3>رضا امینی زاده </h3>
                     <span>raminizade@gmail.com</span>
                 </div>
+                <span id="out">
+                    <a style="cursor: pointer;" href="/logout" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">خروج</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </span>
             </div>
             <div class="sidebar-menu">
                 <div class="menu-head">
@@ -298,7 +305,7 @@
                                                         @endif
                                                     @endforeach
                                                     @if ($counter == 0)
-                                                    <a href="admin/{{ $item->id }}/delete"><img
+                                                    <a href="admin/{{ $item->id }}/deletetour"><img
                                                         src="assets/images/delete.png" alt="" width="40" /></a>
                                                     @else
                                                     <a onclick="alert('تعدادی در این تور شرکت دارند امکان حذف وجود ندارد!')"><img
@@ -468,7 +475,7 @@
                                             </td>
                                             <td>
                                                 <div>
-                                                    <a><img src="assets/images/delete.png" alt="" width="40" /></a>
+                                                    <a href="admin/{{ $item->id }}/deleteuser"><img src="assets/images/delete.png" alt="" width="40" /></a>
                                                 </div>
                                             </td>
                                         </tr>

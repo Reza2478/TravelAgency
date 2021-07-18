@@ -9,9 +9,11 @@ use App\Models\Purchase;
 use App\Models\Timeline;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Kavenegar;
 
 class AdminController extends Controller
 {
+   
     public function index()
     {
         $tour = Tour::all();
@@ -19,9 +21,15 @@ class AdminController extends Controller
         $purchase = Purchase::all();
         return view('admin', compact('tour', 'user', 'purchase'));
     }
-    public function delete($id)
+    public function deletetour($id)
     {
         $temp = Tour::find($id);
+        $temp->delete();
+        return back();
+    }
+    public function deleteuser($id)
+    {
+        $temp = User::find($id);
         $temp->delete();
         return back();
     }
@@ -49,6 +57,45 @@ class AdminController extends Controller
         DB::table('tours')
             ->where('id', $request->id)
             ->update($updateDetails);
+
+        $users = User::all();
+        if($request->sale==1)
+        {
+            foreach ($users as $item) {
+                foreach ($item->interests as $interest) {
+                    if ($interest->cityname == $request->tag) {
+                        try {
+                            $sender = "1000596446";        //This is the Sender number
+
+                            $message = "تور {$request->tag} تخفیف خورده است جهت شرکت در تور به وب سایت آسان گشت مراجعه فرمایید !\n\n لذت سفر با آسان گشت ";        //The body of SMS
+
+                            $receptor = "{$item->phonenumber}";            //Receptors numbers
+
+                            $result = Kavenegar::Send($sender, $receptor, $message);
+                            if ($result) {
+                                foreach ($result as $r) {
+                                    echo "messageid = $r->messageid";
+                                    echo "message = $r->message";
+                                    echo "status = $r->status";
+                                    echo "statustext = $r->statustext";
+                                    echo "sender = $r->sender";
+                                    echo "receptor = $r->receptor";
+                                    echo "date = $r->date";
+                                    echo "cost = $r->cost";
+                                }
+                            }
+                        } catch (\Kavenegar\Exceptions\ApiException $e) {
+                            // در صورتی که خروجی وب سرویس 200 نباشد این خطا رخ می دهد
+                            echo $e->errorMessage();
+                        } catch (\Kavenegar\Exceptions\HttpException $e) {
+                            // در زمانی که مشکلی در برقرای ارتباط با وب سرویس وجود داشته باشد این خطا رخ می دهد
+                            echo $e->errorMessage();
+                        }
+                    }
+                }
+            }
+        }
+
         return back();
     }
     public function show()

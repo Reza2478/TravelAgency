@@ -11,6 +11,10 @@ use Illuminate\Http\Request;
 
 class UserAuthController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('access')->only('index');
+    }
     public function index()
     {
         $user = Auth::user();

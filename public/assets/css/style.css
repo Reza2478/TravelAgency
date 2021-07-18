@@ -1282,9 +1282,13 @@ footer .notice strong {
     height: 100%;
     float: right;
     background-color: #E74C3C;
-    position: absolute;
+    position: relative;
 }
-
+.panel .parent_panel {
+    width: 100%;
+    display: table;
+    position:absolute;
+}
 
 .panel .parent_panel .text_panel {
     margin-top: 85px;
@@ -1293,7 +1297,7 @@ footer .notice strong {
 }
 
 .panel .parent_panel .text_panel h1 {
-    font-size: 40px;
+    font-size: 30px;
     text-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
 }
 
@@ -1574,7 +1578,7 @@ footer .notice strong {
 }
 
 .user-panel .panel .parent_panel .text_panel h1 {
-    font-size: 40px;
+    font-size: 30px;
     text-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
 
 }
@@ -1592,12 +1596,14 @@ footer .notice strong {
     color:#fff;
 }
 .user-interest {
-    margin-top: 10px;
+    margin-top:20px;
     color:#fff;
-    background-color: #333;
 }
 .user-interest h2{
     font-size:25px;
+    margin-bottom:5px;
+}
+.user-interest ul li {
     margin-bottom:5px;
 }
 .user-interest input{

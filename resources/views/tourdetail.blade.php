@@ -94,7 +94,11 @@
                             <hr />
                         </div>
                         <img src="/uploads/{{ $info->image }}" alt="#" />
+                        @if ($remain>=0)
                         <a href="/user/{{ $info->id}}/buy" class="price">شرکت در تور</a>
+                        @else
+                        <a onclick="alert('اعتبار شما برای شرکت در تور ناکافیست!')" class="price">شرکت در تور</a>
+                        @endif
                     </div>
                 </div>
             </div>

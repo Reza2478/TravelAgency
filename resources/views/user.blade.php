@@ -47,12 +47,13 @@
                                     <div class="figure_parent">
                                         <figure>
                                             <div class="image_content">
-                                                <img src="{{ $item->tour->image }}" alt="#">
+                                                <img src="/uploads/{{ $item->tour->image }}" alt="#">
                                             </div>
                                             <figcaption>
                                                 <h1>تور {{ $item->tour->to }}</h1>
                                                 <h2>مبدا :{{ $item->tour->from }}</h2>
                                                 <h2>مقصد :{{ $item->tour->to }}</h2>
+                                                <h2>پیگیری: {{$item->track}}</h2>
                                                 <div class="twice">
                                                     <ul>
                                                         <li><a href="/user/{{ $item->id }}/cancel">لغو بلیط</a></li>
@@ -69,7 +70,7 @@
                     <div class="parent_panel">
                         <div class="panel_information">
                             <div class="text_panel">
-                                <h5>اطلاعات پنل کاربری</h5>
+                                <h1>اطلاعات پنل کاربری</h1>
                             </div>
                             <div class="information">
                                 <ul>
@@ -95,7 +96,7 @@
                                     @endif
 
                                 </ul>
-                                <form action="/user" method="post">
+                                <form action="/user/edit" method="post">
                                     @csrf
                                     @php
                                         $counter = 0;

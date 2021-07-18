@@ -13,9 +13,11 @@ class TourdetailController extends Controller
 {
     public function index($id)
     {
+        $user = Auth::user();
         $info=Tour::find($id);
+        $remain = $user->credit-$info->amount;
         $details=$info->timelines;
-        return view('tourdetail',compact('info','details'));
+        return view('tourdetail',compact('info','details','remain'));
     }
     public function buy($id)
     {
