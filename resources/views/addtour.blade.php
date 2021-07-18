@@ -111,15 +111,13 @@
                         <label for="image">
                             <b>تصویر</b>
                         </label>
-                        <input class="Uname" name="image" id="image" type="file" placeholder="تصویر"
-                            required>
+                        <input class="Uname" name="image" id="image" type="file" placeholder="تصویر" required>
                     </div>
                     <div class="left">
                         <label for="staytime">
                             <b>اقامت</b>
                         </label>
-                        <input class="Uname" name="staytime" id="staytime" type="file" placeholder="تصویر"
-                            required>
+                        <input class="Uname" name="staytime" id="staytime" type="text" placeholder="مدت اقامت" required>
                     </div>
                     <label for="services">
                         <b>خدمات</b>

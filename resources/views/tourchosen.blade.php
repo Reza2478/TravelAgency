@@ -118,28 +118,7 @@
             </div>
         </div>
     </header>
-    <div class="clearfix"></div>
-    <section>
-        <div class="search-box">
-            <div class="wrapper">
-                <div class="clearfix"></div>
-                <div class="container wow animated fadeIn">
-                    <h1 class="title">مقصد بعدی شما؟</h1>
-                    <div class="form-group">
 
-                        <div class="search">
-                            <form action="/tourchosen" method="post">
-                                @csrf
-                                <input name="city" type="text" class="search-input" placeholder="مقصد بعدی خود را جستجو کنید">
-                                <input class="btn" type="submit" value="جستجو"></input>
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <div class="clearfix"></div>
     <section>
         <div class="tour" id="section-1">

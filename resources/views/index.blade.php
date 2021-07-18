@@ -55,7 +55,7 @@
                         </ul>
                     </div>
                 @else
-                    <p>خوش آمدید</p>
+                    <a href="/user">پنل کاربری</a>
                 @endguest
             </div>
             <ul class="rslides">
@@ -85,7 +85,7 @@
                             <a href="#" onclick="$('#section-5').animatescroll();">سوالات متداول</a>
                         </li>
                         <li>
-                            <a href="#" onclick="$('#section-6').animatescroll();">تورهای لحظه آخری</a>
+                            <a href="#" onclick="$('#section-6').animatescroll();">تورهای تخفیفی</a>
                         </li>
                         <li>
                             <a href="#" onclick="$('#section-7').animatescroll();">تماس با ما</a>
@@ -180,10 +180,10 @@
                         $counter=0;
                     @endphp
                     @foreach ($tour as $item)
-                    @if ($item->sale!=1)
+                    @if ($item->sale==0)
                     <p style="display:none;">{{$counter++}}</p>
                     <figure>
-                        <img src="{{ $item->image }}" alt="#">
+                        <img src="/storage/uploads/{{ $item->image }}" alt="#">
                         <figcaption>
                             @if ($item->type === 'airplane')
                                 <h2>تور هوایی {{ $item->to }}</h2>
@@ -194,14 +194,15 @@
                             @endif
                             <h4><i class="fa fa-map-marker"></i>مبدا : {{ $item->from }}</h4>
                             <h4><i class="fa fa-map-marker"></i>مقصد : {{ $item->to }}</h4>
-                            <a href="{{ url('tourdetail', $item->id) }}" class="more" id="myBtn">نمایش کامل</a>
+                            <a href="tourdetail/{{$item->id}}" class="more" id="myBtn">نمایش کامل</a>
                         </figcaption>
                     </figure>
-                    @else
-                        <p>آیتمی وجود ندارد</p>
                     @endif
                     @break($counter == 4)
                     @endforeach
+                    @if ($counter ==0)
+                    <p>آیتمی وجود ندارد</p>
+                    @endif
                 </div>
                 <a href="tour" class="show-more">نمایش همه</a>
 
@@ -302,9 +303,9 @@
                 <div id="owl-demo" class="wow animated fadeIn">
                     @foreach ($sale as $item)
                         <div class="item">
-                            <a href="#">
+                            <a href="tourdetail/{{ $item->id}}">
                                 <figure class="figurefx pushup">
-                                    <img src="{{ $item->image }}" alt="">
+                                    <img src="/uploads/{{ $item->image }}" alt="">
                                     <figcaption>
                                         <h2>تور {{ $item->to }}</h2>
                                         <h4>مبدا : {{ $item->from }}<i class="fa fa-map-marker"></i></h4>
@@ -314,8 +315,6 @@
                             </a>
                         </div>
                     @endforeach
-
-
                 </div>
             </div>
         </div>

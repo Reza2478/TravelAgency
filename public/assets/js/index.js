@@ -1,15 +1,15 @@
-$(document).ready(function(){
-    $(".dropdown").click(function(){
+$(document).ready(function () {
+    $(".dropdown").click(function () {
         $(".dropdown-list ul").toggleClass("active");
     });
 
-    $(".dropdown-list ul li").click(function(){
-        var icon_text=$(this).html();
+    $(".dropdown-list ul li").click(function () {
+        var icon_text = $(this).html();
         $(".default-option").html(icon_text);
     });
 
-    $(document).on("click",function(event){
-        if(!$(event.target).closest(".dropdown").length){
+    $(document).on("click", function (event) {
+        if (!$(event.target).closest(".dropdown").length) {
             $(".dropdown-list ul").removeClass("active");
         }
     });
@@ -84,21 +84,44 @@ var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal
-btn.onclick = function() {
+btn.onclick = function () {
     modal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+span.onclick = function () {
     modal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
 }
-
+function edit(item) {
+    document.getElementById("edit").style.display = "block";
+    document.getElementById("id").value = item.id;
+    document.getElementById("from").value = item.from;
+    document.getElementById("to").value = item.to;
+    document.getElementById("amount").value = item.amount;
+    document.getElementById("capacity").value = item.capacity;
+    document.getElementById("departuredate").value = item.departuredate;
+    document.getElementById("returndate").value = item.returndate;
+    document.getElementById("timewent").value = item.timewent;
+    document.getElementById("timeback").value = item.timeback;
+    document.getElementById("sale").value = item.sale;
+    document.getElementById("staytime").value = item.staytime;
+    document.getElementById("hotel").value = item.hotel;
+    document.getElementById("travelcompany").value = item.travelcompany;
+    document.getElementById("tag").value = item.tag;
+    document.getElementById("type").value = item.type;
+    document.getElementById("services").value = item.services;
+    document.getElementById("image").value = item.image;
+}
+function addtimeline(item) {
+    document.getElementById("tour_id").value = item.id;
+    document.getElementById("add").style.display = "block";
+}
 
 

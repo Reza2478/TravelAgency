@@ -21,7 +21,8 @@ class Tour extends Model
         'services',
         'hotel',
         'travelcompany',
-        'image'
+        'image',
+        'staytime'
     ];
     public function timelines()
     {

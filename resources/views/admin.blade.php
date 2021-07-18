@@ -183,10 +183,10 @@
             <section style="margin-top: 10px;">
                 <div class="jobs-grid">
                     <div class="jobs">
-                        <h2>بلیط های آسان گشت</h2>
+                        <h2>تور های آسان گشت</h2>
                         <!-- <h2>Jobs <small>See all jobs <span class="las la-arrow-left"></span></small></h2> -->
                         <div class="table-responsive">
-                            <table>
+                            <table id="table">
                                 <tbody>
                                     <tr>
                                         <th>مبدا </th>
@@ -194,23 +194,28 @@
                                         <th>مبلغ</th>
                                         <th>تاریخ رفت</th>
                                         <th>تاریخ برگشت</th>
-                                        <th>تگ</th>
+                                        <th>ساعت رفت</th>
+                                        <th>ساعت برگشت</th>
+                                        <th>ظرفیت</th>
+                                        <th>تخفیف</th>
+                                        <th>مدت اقامت</th>
+                                        <th>هتل</th>
+                                        <th>شرکت مسافرتی</th>
+                                        <th>دسته بندی</th>
                                         <th>نوع</th>
+                                        <th>خدمات</th>
                                         <th>تصویر</th>
                                         <th>حذف</th>
                                         <th>ویرایش </th>
+                                        <th> افزودن زمان بندی</th>
                                     </tr>
                                     @foreach ($tour as $item)
                                         <tr>
                                             <td>
-                                                <div>
-                                                    {{ $item->from }}
-                                                </div>
+                                                <div>{{ $item->from }}</div>
                                             </td>
                                             <td>
-                                                <div>
-                                                    {{ $item->to }}
-                                                </div>
+                                                <div>{{ $item->to }}</div>
                                             </td>
                                             <td>
                                                 <div>
@@ -229,6 +234,41 @@
                                             </td>
                                             <td>
                                                 <div>
+                                                    {{ $item->timeback }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    {{ $item->timeback }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    {{ $item->capacity }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    {{ $item->sale }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    {{ $item->staytime }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    {{ $item->hotel }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    {{ $item->travelcompany }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
                                                     {{ $item->tag }}
                                                 </div>
                                             </td>
@@ -239,18 +279,44 @@
                                             </td>
                                             <td>
                                                 <div>
+                                                    {{ $item->services }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
                                                     {{ $item->image }}
                                                 </div>
                                             </td>
                                             <td>
                                                 <div>
-                                                    <a href="{{ url('admin', $item->tour_id) }}"><img
-                                                            src="assets/images/delete.png" alt="" width="40" /></a>
+                                                    @php
+                                                        $counter = 0;
+                                                    @endphp
+                                                    @foreach ($purchase as $temp)
+                                                        @if ($temp->tour->id==$item->id&&$temp->cancel==0)
+                                                            <p style="display:none;">{{$counter++ }}</p>
+                                                        @endif
+                                                    @endforeach
+                                                    @if ($counter == 0)
+                                                    <a href="admin/{{ $item->id }}/delete"><img
+                                                        src="assets/images/delete.png" alt="" width="40" /></a>
+                                                    @else
+                                                    <a onclick="alert('تعدادی در این تور شرکت دارند امکان حذف وجود ندارد!')"><img
+                                                        src="assets/images/delete.png" alt="" width="40" /></a>
+                                                    @endif
+
                                                 </div>
                                             </td>
                                             <td>
                                                 <div>
-                                                    <a><img src="assets/images/edit.png" alt="" width="23" /></a>
+                                                    <a onclick="edit({{ $item }})"><img
+                                                            src="assets/images/edit.png" alt="" width="23" /></a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <a onclick="addtimeline({{ $item }})"><img
+                                                            src="assets/images/add.png" alt="" width="23" /></a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -261,7 +327,90 @@
             </section>
 
             <a href="/addtour">افزودن تور</a>
+            <section id="edit" style="display:none;">
+                <h2>ویرایش تور</h2>
+                <form action="/admin/edit" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="text" name="id" id="id" style="display:none;">
+                    مبدا: <input type="text" name="from" id="from">
+                    مقصد: <input type="text" name="to" id="to">
+                    مبلغ: <input type="text" name="amount" id="amount">
+                    تاریخ رفت: <input type="text" name="departuredate" id="departuredate">
+                    تاریخ برگشت: <input type="text" name="returndate" id="returndate">
+                    ساعت رفت: <input type="text" name="timewent" id="timewent">
+                    ساعت برگشت: <input type="text" name="timeback" id="timeback">
+                    ظرفیت: <input type="text" name="capacity" id="capacity">
+                    تخفیف:<input type="text" name="sale" id="sale">
+                    مدت اقامت: <input type="text" name="staytime" id="staytime">
+                    هتل: <input type="text" name="hotel" id="hotel">
+                    دسته بندی: <input type="text" name="tag" id="tag">
+                    نوع : <input type="text" name="type" id="type">
+                    خدمات : <input type="text" name="services" id="services">
+                    تصویر: <input type="text" name="image" id="image">
+                    شرکت مسافرتی: <input type="text" name="travelcompany" id="travelcompany">
+                    <input type="submit" value="ویرایش">
+                </form>
+            </section>
 
+
+            <section id="add" style="display:none;">
+                <h2> افزودن زمان بندی</h2>
+                <form action="/admin/addtimeline" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="text" name="tour_id" id="tour_id" style="display:none;">
+                    توقف: <input type="text" name="city" id="city">
+                    زمان: <input type="time" name="time" id="time">
+                    رفت/برگشت: <input type="text" name="status" id="status">
+                    <input type="submit" value="افزودن">
+                </form>
+            </section>
+
+
+            <section style="margin-top: 10px;">
+                <div class="jobs-grid">
+                    <div class="jobs">
+                        <h2>خریدهای آسان گشت</h2>
+                        <!-- <h2>Jobs <small>See all jobs <span class="las la-arrow-left"></span></small></h2> -->
+                        <div class="table-responsive">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th>دسته بندی</th>
+                                        <th>نوع</th>
+                                        <th>شماره پیگیری</th>
+                                        <th>لغو شده</th>
+                                    </tr>
+                                    @foreach ($purchase as $item)
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    {{ $item->tour->tag }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    {{ $item->tour->type }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    {{ $item->track }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    {{ $item->cancel }}
+                                                </div>
+                                            </td>
+
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <section style="margin-top: 10px;">
                 <div class="jobs-grid">
                     <div class="jobs">
@@ -337,7 +486,6 @@
 
     </label>
     <script src="assets/js/index.js"></script>
-
 </body>
 
 </html>
