@@ -14,8 +14,7 @@
             <div class="wrapper">
                 <div class="landing-nav">
                     <ul>
-                        <li><a href="index.php">صفحه اصلی</a> </li>
-                        <li><a href="product.php">فروشگاه</a></li>
+                        <li><a href="/">صفحه اصلی</a> </li>
                     </ul>
                 </div>
                 <div class="logo">
@@ -94,7 +93,7 @@
                             <h1>تور {{$info->to}}</h1>
                             <hr />
                         </div>
-                        <img src="{{ $info->image }}" alt="#" />
+                        <img src="/uploads/{{ $info->image }}" alt="#" />
                         <a href="/user/{{ $info->id}}/buy" class="price">شرکت در تور</a>
                     </div>
                 </div>

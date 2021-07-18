@@ -70,16 +70,26 @@
                         <li>آژانس مسافرتی گردشگری</li>
                     </ul>
                 </div>
-                <div class="twice">
-                    <ul>
-                        <li>
-                            <a class="project inline" href="#open">ثبت نام</a>
-                        </li>
-                        <li>
-                            <a class="more" href="#">ارتباط با ما</a>
-                        </li>
-                    </ul>
-                </div>
+                @guest
+                    <div class="twice">
+                        <ul>
+                            <li>
+                                <a class="project" href="/register">ثبت نام</a>
+                            </li>
+                            <li>
+                                <a class="project" href="/login">ورود</a>
+                            </li>
+                        </ul>
+                    </div>
+                @else
+                    <div class="welcome">
+                        <h2>
+                            {{ $user->firstname }} خوش آمدی
+                        </h2>
+                        <a href="/user">پنل کاربری</a>
+                    </div>
+
+                @endguest
             </div>
             <ul class="rslides">
                 <li><img alt="" src="assets/images/cover/cover1.jpg"></li>
@@ -93,7 +103,7 @@
                 <div class="landing-nav">
                     <ul>
                         <li>
-                            <a href="#">صفحه اصلی</a>
+                            <a href="/">صفحه اصلی</a>
                         </li>
                         <li>
                             <a href="#" onclick="$('#section-1').animatescroll();">تورهای هوایی</a>
@@ -105,7 +115,7 @@
                             <a href="#" onclick="$('#section-3').animatescroll();">تورهای زمینی</a>
                         </li>
                         <li>
-                            <a href="#" onclick="$('#section-4').animatescroll();">تورهای لحظه آخری</a>
+                            <a href="#" onclick="$('#section-4').animatescroll();">تورهای تخفیفی</a>
                         </li>
                         <li>
                             <a href="#" onclick="$('#section-5').animatescroll();">تماس با ما</a>
@@ -153,7 +163,7 @@
                         <article>
                             <div class="post">
                                 <div class="right">
-                                    <img src="{{$item->image}}" alt="#">
+                                    <img src="/uploads/{{$item->image}}" alt="#">
                                 </div>
                                 <h2>تور هوایی {{ $item->to }}</h2>
                                 <h4><i class="fa fa-map-marker"></i>مبدا : {{ $item->from }}</h4>
@@ -192,7 +202,7 @@
                         <article>
                             <div class="post">
                                 <div class="right">
-                                    <img src="{{$item->image}}" alt="#">
+                                    <img src="/uploads/{{$item->image}}" alt="#">
                                 </div>
                                 @if ($item->type === 'train')
                                     <h2>تور قطار {{ $item->to }}</h2>
@@ -221,7 +231,7 @@
                         <div class="item">
                             <a href="tourdetail/{{$item->id}}">
                                 <figure class="figurefx pushup">
-                                    <img src="{{ $item->image }}" alt="">
+                                    <img src="/uploads/{{$item->image}}" alt="">
                                     <figcaption>
                                         <h2>تور {{ $item->to }}</h2>
                                         <h4>مبدا : {{ $item->from }}<i class="fa fa-map-marker"></i></h4>

@@ -43,6 +43,7 @@ class AdminController extends Controller
             'travelcompany' => $request->travelcompany,
             'image' => $request->image,
             'staytime' => $request->staytime,
+            'sale' => $request->sale,
         ];
 
         DB::table('tours')

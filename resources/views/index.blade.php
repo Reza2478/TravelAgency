@@ -55,7 +55,13 @@
                         </ul>
                     </div>
                 @else
-                    <a href="/user">پنل کاربری</a>
+                    <div class="welcome">
+                        <h2>
+                            {{ $user->firstname }} خوش آمدی
+                        </h2>
+                        <a href="/user">پنل کاربری</a>
+                    </div>
+
                 @endguest
             </div>
             <ul class="rslides">
@@ -70,22 +76,22 @@
                 <div class="landing-nav">
                     <ul>
                         <li>
-                            <a href="#" onclick="$('#section-1').animatescroll();">فعالیت ها</a>
+                            <a  onclick="$('#section-1').animatescroll();">فعالیت ها</a>
                         </li>
                         <li>
-                            <a href="#" onclick="$('#section-2').animatescroll();">درباره ما</a>
+                            <a  onclick="$('#section-2').animatescroll();">درباره ما</a>
                         </li>
                         <li>
-                            <a href="#" onclick="$('#section-3').animatescroll();">چشم انداز</a>
+                            <a onclick="$('#section-3').animatescroll();">چشم انداز</a>
                         </li>
                         <li>
-                            <a href="#" onclick="$('#section-4').animatescroll();">تورها</a>
+                            <a  onclick="$('#section-4').animatescroll();">تورها</a>
                         </li>
                         <li>
-                            <a href="#" onclick="$('#section-5').animatescroll();">سوالات متداول</a>
+                            <a  onclick="$('#section-5').animatescroll();">سوالات متداول</a>
                         </li>
                         <li>
-                            <a href="#" onclick="$('#section-6').animatescroll();">تورهای تخفیفی</a>
+                            <a  onclick="$('#section-6').animatescroll();">تورهای تخفیفی</a>
                         </li>
                         <li>
                             <a href="#" onclick="$('#section-7').animatescroll();">تماس با ما</a>
@@ -177,34 +183,38 @@
                 <hr>
                 <div class="grid wow animated fadeIn">
                     @php
-                        $counter=0;
+                        $counter = 0;
                     @endphp
                     @foreach ($tour as $item)
-                    @if ($item->sale==0)
-                    <p style="display:none;">{{$counter++}}</p>
-                    <figure>
-                        <img src="/storage/uploads/{{ $item->image }}" alt="#">
-                        <figcaption>
-                            @if ($item->type === 'airplane')
-                                <h2>تور هوایی {{ $item->to }}</h2>
-                            @elseif ($item->type === 'train')
-                                <h2>تور قطار {{ $item->to }}</h2>
-                            @elseif ($item->type === 'bus')
-                                <h2>تور اتوبوس {{ $item->to }}</h2>
-                            @endif
-                            <h4><i class="fa fa-map-marker"></i>مبدا : {{ $item->from }}</h4>
-                            <h4><i class="fa fa-map-marker"></i>مقصد : {{ $item->to }}</h4>
-                            <a href="tourdetail/{{$item->id}}" class="more" id="myBtn">نمایش کامل</a>
-                        </figcaption>
-                    </figure>
-                    @endif
+                        @if ($item->sale == 0)
+                            <p style="display:none;">{{ $counter++ }}</p>
+                            <figure>
+                                <img src="/uploads/{{ $item->image }}" alt="#">
+                                <figcaption>
+                                    @if ($item->type === 'airplane')
+                                        <h2>تور هوایی {{ $item->to }}</h2>
+                                    @elseif ($item->type === 'train')
+                                        <h2>تور قطار {{ $item->to }}</h2>
+                                    @elseif ($item->type === 'bus')
+                                        <h2>تور اتوبوس {{ $item->to }}</h2>
+                                    @endif
+                                    <h4><i class="fa fa-map-marker"></i>مبدا : {{ $item->from }}</h4>
+                                    <h4><i class="fa fa-map-marker"></i>مقصد : {{ $item->to }}</h4>
+                                    <a href="tourdetail/{{ $item->id }}" class="more" id="myBtn">نمایش کامل</a>
+                                </figcaption>
+                            </figure>
+                        @endif
                     @break($counter == 4)
                     @endforeach
-                    @if ($counter ==0)
-                    <p>آیتمی وجود ندارد</p>
+                    @if ($counter == 0)
+                        <div class="msg-tour">
+                            <p>آیتمی وجود ندارد</p>
+                        </div>
                     @endif
                 </div>
-                <a href="tour" class="show-more">نمایش همه</a>
+                @if ($counter != 0)
+                    <a href="tour" class="show-more">نمایش همه</a>
+                @endif
 
             </div>
         </div>
@@ -303,7 +313,7 @@
                 <div id="owl-demo" class="wow animated fadeIn">
                     @foreach ($sale as $item)
                         <div class="item">
-                            <a href="tourdetail/{{ $item->id}}">
+                            <a href="tourdetail/{{ $item->id }}">
                                 <figure class="figurefx pushup">
                                     <img src="/uploads/{{ $item->image }}" alt="">
                                     <figcaption>
@@ -370,53 +380,8 @@
 
     </section>
     <div class="clearfix"></div>
-    <!-- <footer>
-      <div class="footer-landing">
-         <div class="wrapper">
-            <div class="social">
-               <ul>
-                  <li><a href="#" class="top"><span class="tooltip">facebook</span><i class="fa fa-facebook"></i></a>
-                  </li>
-                  <li><a href="#" class="top"><span class="tooltip">google plus</span><i
-                           class="fa fa-google-plus"></i></a></li>
-                  <li><a href="#" class="top"><span class="tooltip">twitter</span><i class="fa fa-twitter"></i></a></li>
-                  <li><a href="#" class="top"><span class="tooltip">instagram</span><i class="fa fa-instagram"></i></a>
-                  </li>
-               </ul>
-            </div>
-            <p>طراحی توسط رضا امینی زاده</p>
-         </div>
-      </div>
-   </footer> -->
+
     <script src="assets/js/index.js"></script>
-    <script>
-        // Get the modal
-        var modal = document.getElementById("myModal");
-
-        // Get the button that opens the modal
-        var btn = document.getElementById("myBtn");
-
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-
-        // When the user clicks the button, open the modal
-        btn.onclick = function() {
-            modal.style.display = "block";
-        }
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-
-    </script>
 
 </body>
 
