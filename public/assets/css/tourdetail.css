@@ -1,0 +1,736 @@
+/* ---------------------------------------------------- */
+
+/*
+1.  Reset CSS
+2.  Global CSS
+3.  Header CSS
+4.  Navigation CSS
+5.  Services
+6.  About CSS
+7.  Vision CSS
+8.  FastFood CSS
+9.  Latestnews CSS
+10. Customer CSS
+11. Contact CSS
+12. Footer CSS
+13. Tooltip CSS
+*/
+
+/*----------------------------1. Reset----------------------------*/
+
+/**
+ * html5doctor.com Reset Stylesheet v1.6.1 (http://html5doctor.com/html-5-reset-stylesheet/)
+ * Richard Clark (http://richclarkdesign.com)
+ * http://cssreset.com
+ */
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+body {
+    line-height: 1;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+nav ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: "";
+    content: none;
+}
+
+a {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+/* change colours to suit your needs */
+
+ins {
+    background-color: #ff9;
+    color: #000;
+    text-decoration: none;
+}
+
+/* change colours to suit your needs */
+
+mark {
+    background-color: #ff9;
+    color: #000;
+    font-style: italic;
+    font-weight: 700;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title],
+dfn[title] {
+    border-bottom: 1px dotted;
+    cursor: help;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* change border colour to suit your needs */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+input,
+select {
+    vertical-align: middle;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+/*----------------------------2. Global----------------------------*/
+
+@font-face {
+    font-family: "academy";
+    src: url(/assets/fonts/dinar.woff) format("woff");
+}
+
+body {
+    direction: rtl;
+    font-family: "academy", "Myriad Pro", Tahoma;
+    color: #555;
+    background: url(/assets/images/cover/backcover.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 400;
+}
+:focus {
+    outline: 0;
+}
+
+p {
+    line-height: 2;
+}
+
+a {
+    text-decoration: none;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+a:hover,
+a:focus,
+a:visited,
+a:active {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+hr {
+    border: 0;
+    border-bottom: 1px solid #ddd;
+    display: block;
+    margin: 25px auto;
+    width: 100px;
+}
+
+.cover {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-auto-rows: minmax(50px, auto);
+
+    grid-template-areas:
+        "masthead masthead masthead masthead masthead masthead masthead masthead"
+        "pic pic pic pic pic pic pic pic"
+        ". . . . . . . ."
+        ".  parent parent parent parent parent parent ."
+        ". . . . . . . .";
+}
+.masthead {
+    grid-area: masthead;
+    display: grid;
+    grid-template-columns: 1fr 1fr 3fr 1fr 1fr 1fr;
+    grid-auto-rows: minmax(50px, auto);
+    grid-template-areas: ". nav . . logo .";
+    -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+}
+.landing-nav {
+    grid-area: nav;
+}
+.landing-nav ul li {
+    float: right;
+}
+
+.landing-nav ul li a {
+    color: #666;
+    display: block;
+    font-size: 15px;
+    padding: 0 15px;
+    line-height: 60px;
+}
+
+.landing-nav ul li a:hover {
+    background: #e74c3c;
+    color: #fff;
+}
+.logo {
+    grid-area: logo;
+}
+.logo .img {
+    bottom: 0;
+    height: 100%;
+}
+.sticky {
+    width: 100%;
+    margin: 0 auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+.parent {
+    grid-area: parent;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: min-max(10px, auto);
+    grid-gap: 20px;
+    grid-template-areas:
+        "content content content content"
+        "timeline timeline timeline timeline";
+}
+.content {
+    grid-area: content;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-auto-rows: minmax(50px, auto);
+    grid-gap: 10px;
+    grid-template-areas:
+        "titr titr"
+        "info info";
+}
+.titr {
+    grid-area: titr;
+    text-align: center;
+}
+.titr h2 {
+    font-size: 45px;
+}
+.content .info {
+    grid-area: info;
+    text-align: center;
+}
+.content .info ul {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+}
+.content .info ul li {
+    background: #e74c3c;
+    padding: 5px;
+    border-radius: 5px;
+    color: #fff;
+    -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+}
+.content .info h2 {
+    font-size: 30px;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+}
+.pic {
+    grid-area: pic;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: minmax(50px, auto);
+    grid-template-areas:
+        "image image image"
+        ". buy .";
+}
+
+.buy {
+    grid-area: buy;
+    position: absolute;
+    text-align: center;
+    top: 0%;
+    z-index: 1000;
+    width: 100%;
+}
+.buy a{
+    background:#25a65b;
+    padding:20px;
+    color:#fff;
+    font-size:25px;
+}
+.buy a:hover{
+    background:#e74c3c;
+
+}
+.pic img {
+    grid-area: image;
+    height: 500px;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.timeline {
+    grid-area: timeline;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+        "titr titr"
+        "right left";
+    text-align: center;
+    grid-gap: 10px;
+}
+.timeline table {
+    -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+}
+.timeline h1 {
+    font-size: 30px;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+}
+.timeline .right {
+    grid-area: right;
+    text-align: center;
+}
+.timeline .left {
+    grid-area: left;
+    text-align: center;
+}
+.timeline table {
+    width: 100%;
+}
+.timeline h2 {
+    font-size: 20px;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+}
+.timeline td,
+.timeline th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.timeline tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.timeline tr:hover {
+    background-color: #ddd;
+}
+
+.timeline th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #04aa6d;
+    color: white;
+}
+
+
+:root {
+    --bg: #24aa94;
+    --bg-light: #24aa9444;
+    --text: white;
+    --hover: #ffff00;
+    --light: #ffff0031;
+}
+
+footer {
+    background-color: var(--bg-light);
+    line-height: 24px;
+    color: var(--text);
+}
+
+footer .art {
+    background-color: var(--bg);
+    padding: 16px;
+    padding: 48px;
+    clip-path: polygon(0% 5%, 15% 0%, 100% 10%, 100% 100%, 0% 100%);
+}
+
+footer .content {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 16px;
+}
+
+footer header {
+    font-size: 30px;
+    padding-block: 19px;
+}
+
+footer .content a {
+    display: block;
+    padding-block: 10px;
+    color: var(--text);
+    opacity: 0.65;
+}
+
+footer .content a:hover {
+    opacity: 1;
+    color: var(--hover);
+    font-size: 18px;
+}
+
+footer input {
+    font-family: 'academy';
+    border-style: solid;
+    line-height: 24px;
+    padding: 12px 16px;
+    font-size: 1rem;
+    width: 100%;
+    margin-block: 8px;
+    border-radius: 8px;
+    border-width: 2px;
+}
+
+footer input::placeholder {
+    color: var(--text);
+}
+
+footer textarea::placeholder {
+    color: var(--text);
+}
+
+footer input[type='email'], footer textarea {
+    background-color: transparent;
+    border-color: var(--text);
+    color: var(--text);
+}
+
+footer input[type='email']:hover, footer input[type='email']:focus {
+    border-color: var(--hover);
+    color: var(--hover);
+}
+
+footer textarea {
+    resize: none;
+    height: 150px;
+    font-family: 'academy';
+    border-style: solid;
+    line-height: 24px;
+    padding: 12px 16px;
+    font-size: 1rem;
+    width: 100%;
+    margin-block: 8px;
+    border-radius: 8px;
+    border-width: 2px;
+}
+
+footer input[type='submit'] {
+    background-color: var(--text);
+    color: var(--bg);
+    text-transform: uppercase;
+    border: none;
+}
+
+footer textarea:hover, footer textarea:focus {
+    border-color: var(--hover);
+    color: var(--hover);
+}
+
+footer input[type='submit']:hover {
+    background-color: var(--hover);
+}
+
+footer .social {
+    display: grid;
+    margin-block: 16px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 16px;
+}
+
+footer .social i {
+    font-size: 32px;
+    padding: 12px;
+    text-align: center;
+    border: 1px solid var(--light);
+    border-radius: 8px;
+    width: 100%;
+}
+
+footer .social i:hover {
+    color: var(--hover);
+    border-color: var(--hover);
+    box-shadow: 0px 0px 16px inset var(--light);
+}
+
+footer .notice {
+    text-align: center;
+    padding: 24px;
+}
+
+footer .notice strong {
+    color: var(--hover);
+    text-transform: uppercase;
+}
+
+.contact-landing {
+    width: 100%;
+    float: right;
+}
+
+/*----------------------------11. search-box----------------------------*/
+
+.search-box {
+    background: #E74C3C;
+    width: 100%;
+    float: right;
+    z-index: 10000;
+    padding: 30px 10px
+}
+
+.search-box .container .title {
+    color: #fff;
+    text-transform: capitalize;
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 30px;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+.form-group {
+    background-color: #fff;
+    display: flex;
+    width: 630px;
+    height: 50px;
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 30px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown {
+    position: relative;
+    width: 150px;
+    padding-left: 5px;
+    color: #3a3a3a;
+    border-left: 2px solid #E74C3C;
+    cursor: pointer;
+}
+
+.default-option {
+    padding: 8px 30px;
+}
+
+.dropdown-list ul {
+    background-color: #fff;
+    color: #696969;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 150px;
+    border-radius: 5px;
+    display: none;
+}
+
+.dropdown-list ul.active {
+    display: block;
+}
+
+.dropdown-list ul li {
+    padding: 10px 10px 10px 20px;
+}
+
+.dropdown-list ul li i {
+    font-size: 13px;
+    margin-left: 5px;
+}
+
+.dropdown::before {
+    content: "";
+    border-width: 6px 6px 0 6px;
+    border-style: solid;
+    border-color: #1d1d1d transparent;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+}
+
+.dropdown-list ul li::before {
+    content: "";
+    border-width: 0px 8px 8px 8px;
+    border-style: solid;
+    border-color: #fff transparent;
+    position: absolute;
+    bottom: 100%;
+    left: 24px;
+}
+
+.dropdown-list ul li:hover {
+    background-color: #E74C3C;
+    color: #fff;
+}
+
+.search {
+    width: 600px;
+    height: 100%;
+}
+
+.search-input {
+    font-family: 'academy';
+    width: 90%;
+    height: 100%;
+    border: 0;
+    padding: 0 10px;
+    color: #3a3a3a;
+}
+
+.btn {
+    background-color: #fff;
+    width: 50px;
+    height: 100%;
+    border: 0;
+    cursor: pointer;
+    font-family: 'academy';
+    color:#3a3a3a;
+}
+
+.btn .fa-search {
+    font-size: 20px;
+    color: #E74C3C;
+}
+
+.btn .fa-search:hover {
+    font-size: 21px;
+    color: #25a65b;
+}

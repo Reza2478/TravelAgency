@@ -39,24 +39,27 @@
                 </div>
 
                 <div class="purchases">
-                @foreach ($details->purchases as $item)
-                @if ($item->cancel == 0)
-                    <figure>
-                        <div class="image_content">
-                            <img src="{{ $item->tour->image }}" alt="#">
-                        </div>
-                        <figcaption>
-                            <h1>تور {{ $item->tour->to }}</h1>
-                            <h2>مبدا :{{ $item->tour->from }}</h2>
-                            <h2>مقصد :{{ $item->tour->to }}</h2>
-                            <h2>پیگیری: {{$item->track}}</h2>
-                            <div class="twice">
-                                <ul>
-                                    <li><a href="/user/{{ $item->id }}/cancel">لغو بلیط</a></li>
-                                </ul>
+                    @foreach ($details->purchases as $item)
+                    @if ($item->cancel == 0)
+                    <div class="figure_parent">
+                        <figure>
+                            <div class="image_content">
+                                <img src="{{ $item->tour->image }}" alt="#">
                             </div>
-                        </figcaption>
-                    </figure>
+                            <figcaption>
+                                <h1>تور {{ $item->tour->to }}</h1>
+                                <h2>مبدا :{{ $item->tour->from }}</h2>
+                                <h2>مقصد :{{ $item->tour->to }}</h2>
+                                <h2>پیگیری: {{$item->track}}</h2>
+                                <div class="twice">
+                                    <ul>
+                                        <li><a href="/user/{{ $item->id }}/cancel">لغو بلیط</a></li>
+                                    </ul>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+
                     @endif
                     @endforeach
                 </div>

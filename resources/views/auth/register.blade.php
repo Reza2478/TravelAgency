@@ -80,7 +80,7 @@
                 </div>
                 <div class="input-div">
                     <div class="i">
-                        <i class="fa fa-envelope""></i>
+                        <i class="fa fa-envelope"></i>
                             </div>
                             <div class=" div">
                             <h5>پست الکترونیک</h5>

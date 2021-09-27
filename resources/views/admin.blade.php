@@ -5,11 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" maximnum-scale=1,minimum-scale=1>
-    <title>panel</title>
-    <link rel="stylesheet"
-        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <title>AdminPanel</title>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="panel.css">
-
+    <script src="https://kit.fontawesome.com/8e5597edbc.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/owl.carousel.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/panel.css">
@@ -27,472 +26,335 @@
 </head>
 
 <body>
-    <input type="checkbox" name="" id="sidebar-toggle">
-    <div class="sidebar">
-        <div class="sidebar-brand">
-            <div class="brand-flex">
-                <img src="assets/images/logo-cover.png" alt="#" width="40px">
-                <div class="brand-icons">
-                    <span class="las la-bell"></span>
-                    <span class="las la-user-circle"></span>
-                </div>
-            </div>
-        </div>
-        <div class="sidebar-main">
-            <div class="sidebar-user">
-                <img src="assets/images/dakota.jpg" alt="#">
-                <div>
-                    <h3>رضا امینی زاده </h3>
-                    <span>raminizade@gmail.com</span>
-                </div>
-                <span id="out">
-                    <a style="cursor: pointer;" href="/logout" onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">خروج</a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                </span>
-            </div>
-            <div class="sidebar-menu">
-                <div class="menu-head">
-                    <span>پنل کاربری</span>
-                </div>
+    <div class="cover">
+        <div class="masthead">
+            <div class="landing-nav">
                 <ul>
-                    <li>
-                        <a href="">
-                            <span class="las la-balance-scale"></span>
-                            Finance
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="las la-chart-pie"></span>
-                            Analytics
-                        </a>
-                    </li>
-                </ul>
-                <div class="menu-head">
-                    <span>Applications</span>
-                </div>
-                <ul>
-                    <li>
-                        <a href="">
-                            <span class="las la-calendar"></span>
-                            Calendar
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="las la-users"></span>
-                            Contacts
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="las la-shopping-cart"></span>
-                            Ecommerce
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="las la-envelope"></span>
-                            Mailbox
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="las la-check-circle"></span>
-                            Tasks
-                        </a>
-                    </li>
+                    <li><a href="index.php">صفحه اصلی</a> </li>
+                    <li><a href="product.php">فروشگاه</a></li>
                 </ul>
             </div>
+            <div class="logo">
+                <img alt="#" src="/assets/images/logo2.png">
+            </div>
         </div>
-    </div>
-    <div class="main-content">
-        <header>
-            <div class="menu-toggle">
-                <label for="sidebar-toggle">
-                    <span class="las la-bars"></span>
-                </label>
 
-            </div>
-            <div class="header-icons">
-                <span class="las la-search"></span>
-                <span class="las la-bookmark"></span>
-                <span class="las la-sms"></span>
-            </div>
-        </header>
-        <main>
-            <div class="page-header">
-                <div>
-                    <h1>Analytics Dashboard</h1>
-                    <small>Monitor key metrics. Check reporting and review insights</small>
+        <div class="modal-bg">
+            <div class="modal">
+                <div class="head">
+                    <h1>جزئیات تور</h1>
+                    <hr />
                 </div>
-                <div class="header-actions">
-                    <button>
-                        <span class="las la-file-export"></span>
-                        Export
-                    </button>
-                    <button>
-                        <span class="las la-tools"></span>
-                        Settings
-                    </button>
-                </div>
-            </div>
-            <div class="cards">
-                <div class="card-single">
-                    <div class="card-flex">
-                        <div class="card-info">
-                            <div class="card-head">
-                                <span>Refunds</span>
-                                <small>Value of refunded orders</small>
-                            </div>
-                            <h2>$4,553.11</h2>
-                            <small>10% less refunded</small>
-                        </div>
-                        <div class="card-chart yellow">
-                            <span class="las la-chart-line"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-single">
-                    <div class="card-flex">
-                        <div class="card-info">
-                            <div class="card-head">
-                                <span>uniq visitors</span>
-                                <small>Number of visitors</small>
-                            </div>
-                            <h2>46,085</h2>
-                            <small>2% less visitors</small>
-                        </div>
-                        <div class="card-chart success">
-                            <span class="las la-chart-line"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-single">
-                    <div class="card-flex">
-                        <div class="card-info">
-                            <div class="card-head">
-                                <span>uniq visitors</span>
-                                <small>Number of visitors</small>
-                            </div>
-                            <h2>46,085</h2>
-                            <small>2% less visitors</small>
-                        </div>
-                        <div class="card-chart danger">
-                            <span class="las la-chart-line"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <section style="margin-top: 10px;">
-                <div class="jobs-grid">
-                    <div class="jobs">
-                        <h2>تور های آسان گشت</h2>
-                        <!-- <h2>Jobs <small>See all jobs <span class="las la-arrow-left"></span></small></h2> -->
-                        <div class="table-responsive">
-                            <table id="table">
-                                <tbody>
-                                    <tr>
-                                        <th>مبدا </th>
-                                        <th>مقصد</th>
-                                        <th>مبلغ</th>
-                                        <th>تاریخ رفت</th>
-                                        <th>تاریخ برگشت</th>
-                                        <th>ساعت رفت</th>
-                                        <th>ساعت برگشت</th>
-                                        <th>ظرفیت</th>
-                                        <th>تخفیف</th>
-                                        <th>مدت اقامت</th>
-                                        <th>هتل</th>
-                                        <th>شرکت مسافرتی</th>
-                                        <th>دسته بندی</th>
-                                        <th>نوع</th>
-                                        <th>خدمات</th>
-                                        <th>تصویر</th>
-                                        <th>حذف</th>
-                                        <th>ویرایش </th>
-                                        <th> افزودن زمان بندی</th>
-                                    </tr>
-                                    @foreach ($tour as $item)
-                                        <tr>
-                                            <td>
-                                                <div>{{ $item->from }}</div>
-                                            </td>
-                                            <td>
-                                                <div>{{ $item->to }}</div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    {{ $item->amount }}
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    {{ $item->departuredate }}
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    {{ $item->returndate }}
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    {{ $item->timeback }}
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    {{ $item->timeback }}
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    {{ $item->capacity }}
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    {{ $item->sale }}
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    {{ $item->staytime }}
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    {{ $item->hotel }}
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    {{ $item->travelcompany }}
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    {{ $item->tag }}
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    {{ $item->type }}
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    {{ $item->services }}
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    {{ $item->image }}
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    @php
-                                                        $counter = 0;
-                                                    @endphp
-                                                    @foreach ($purchase as $temp)
-                                                        @if ($temp->tour->id==$item->id&&$temp->cancel==0)
-                                                            <p style="display:none;">{{$counter++ }}</p>
-                                                        @endif
-                                                    @endforeach
-                                                    @if ($counter == 0)
-                                                    <a href="admin/{{ $item->id }}/deletetour"><img
-                                                        src="assets/images/delete.png" alt="" width="40" /></a>
-                                                    @else
-                                                    <a onclick="alert('تعدادی در این تور شرکت دارند امکان حذف وجود ندارد!')"><img
-                                                        src="assets/images/delete.png" alt="" width="40" /></a>
-                                                    @endif
-
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <a onclick="edit({{ $item }})"><img
-                                                            src="assets/images/edit.png" alt="" width="23" /></a>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <a onclick="addtimeline({{ $item }})"><img
-                                                            src="assets/images/add.png" alt="" width="23" /></a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-            </section>
-
-            <a href="/addtour">افزودن تور</a>
-            <section id="edit" style="display:none;">
-                <h2>ویرایش تور</h2>
                 <form action="/admin/edit" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="text" name="id" id="id" style="display:none;">
-                    مبدا: <input type="text" name="from" id="from">
-                    مقصد: <input type="text" name="to" id="to">
-                    مبلغ: <input type="text" name="amount" id="amount">
-                    تاریخ رفت: <input type="text" name="departuredate" id="departuredate">
-                    تاریخ برگشت: <input type="text" name="returndate" id="returndate">
-                    ساعت رفت: <input type="text" name="timewent" id="timewent">
-                    ساعت برگشت: <input type="text" name="timeback" id="timeback">
-                    ظرفیت: <input type="text" name="capacity" id="capacity">
-                    تخفیف:<input type="text" name="sale" id="sale">
-                    مدت اقامت: <input type="text" name="staytime" id="staytime">
-                    هتل: <input type="text" name="hotel" id="hotel">
-                    دسته بندی: <input type="text" name="tag" id="tag">
-                    نوع : <input type="text" name="type" id="type">
-                    خدمات : <input type="text" name="services" id="services">
-                    تصویر: <input type="text" name="image" id="image">
-                    شرکت مسافرتی: <input type="text" name="travelcompany" id="travelcompany">
-                    <input type="submit" value="ویرایش">
+                    <div class="item">
+                        <label>مبدا:</label>
+                        <input type="text" name="from" id="from">
+                    </div>
+                    <div class="item">
+                        <label>مقصد: </label>
+                        <input type="text" name="to" id="to">
+                    </div>
+                    <div class="item">
+                        <label>مبلغ: </label>
+                        <input type="text" name="amount" id="amount">
+                    </div>
+                    <div class="item">
+                        <label>تاریخ رفت: </label>
+                        <input type="text" name="departuredate" id="departuredate">
+                    </div>
+                    <div class="item">
+                        <label>تاریخ برگشت: </label>
+                        <input type="text" name="returndate" id="returndate">
+                    </div>
+                    <div class="item">
+                        <label>ساعت رفت:</label>
+                        <input type="text" name="timewent" id="timewent">
+                    </div>
+                    <div class="item">
+                        <label>ساعت برگشت: </label>
+                        <input type="text" name="timeback" id="timeback">
+                    </div>
+                    <div class="item">
+                        <label>ظرفیت: </label>
+                        <input type="text" name="capacity" id="capacity">
+                    </div>
+                    <div class="item">
+                        <label for="">تخفیف:</label>
+                        <input type="text" name="sale" id="sale">
+                    </div>
+                    <div class="item">
+                        <label>مدت اقامت:</label>
+                        <input type="text" name="staytime" id="staytime">
+                    </div>
+                    <div class="item">
+                        <label>هتل: </label>
+                        <input type="text" name="hotel" id="hotel">
+                    </div>
+                    <div class="item">
+                        <label>دسته بندی: </label>
+                        <input type="text" name="tag" id="tag">
+                    </div>
+                    <div class="item">
+                        <label>نوع : </label>
+                        <input type="text" name="type" id="type">
+                    </div>
+                    <div class="item">
+                        <label>خدمات :</label>
+                        <input type="text" name="services" id="services">
+                    </div>
+                    <div class="item">
+                        <label>تصویر:</label>
+                        <input type="text" name="image" id="image">
+                    </div>
+                    <div class="item">
+                        <label>شرکت مسافرتی:</label>
+                        <input type="text" name="travelcompany" id="travelcompany">
+                    </div>
+                    <div class="btn">
+                        <input type="submit" value="ویرایش">
+                    </div>
+                    <span class="modal-close"><i class="fa fa-times"></i></span>
                 </form>
-            </section>
+            </div>
+        </div>
 
+        <div class="side-bar">
+            <div class="titr">
+                <h1>پنل ادمین</h1>
+                <hr>
+            </div>
+            <div class="add-btn">
+                <a class="modal-button">افزودن تور</a>
+            </div>
+            <div class="modal-bg-add">
+                <div class="modal">
+                    <div class="head">
+                        <h1>افزودن تور</h1>
+                        <hr />
+                    </div>
 
-            <section id="add" style="display:none;">
-                <h2> افزودن زمان بندی</h2>
-                <form action="/admin/addtimeline" method="POST" enctype="multipart/form-data">
+                    <form action="/addtour/insert" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <input type="text" name="id" id="id" style="display:none;">
+                        <div class="item">
+                            <label>مبدا:</label>
+                            <input type="text" name="from" id="from">
+                        </div>
+                        <div class="item">
+                            <label>مقصد: </label>
+                            <input type="text" name="to" id="to">
+                        </div>
+                        <div class="item">
+                            <label>مبلغ: </label>
+                            <input type="text" name="amount" id="amount">
+                        </div>
+                        <div class="item">
+                            <label>تاریخ رفت: </label>
+                            <input type="text" name="departuredate" id="departuredate">
+                        </div>
+                        <div class="item">
+                            <label>تاریخ برگشت: </label>
+                            <input type="text" name="returndate" id="returndate">
+                        </div>
+                        <div class="item">
+                            <label>ساعت رفت:</label>
+                            <input type="text" name="timewent" id="timewent">
+                        </div>
+                        <div class="item">
+                            <label>ساعت برگشت: </label>
+                            <input type="text" name="timeback" id="timeback">
+                        </div>
+                        <div class="item">
+                            <label>ظرفیت: </label>
+                            <input type="text" name="capacity" id="capacity">
+                        </div>
+                        <div class="item">
+                            <label for="">تخفیف:</label>
+                            <input type="text" name="sale" id="sale">
+                        </div>
+                        <div class="item">
+                            <label>مدت اقامت:</label>
+                            <input type="text" name="staytime" id="staytime">
+                        </div>
+                        <div class="item">
+                            <label>هتل: </label>
+                            <input type="text" name="hotel" id="hotel">
+                        </div>
+                        <div class="item">
+                            <label>دسته بندی: </label>
+                            <input type="text" name="tag" id="tag">
+                        </div>
+                        <div class="item">
+                            <label>نوع : </label>
+                            <input type="text" name="type" id="type">
+                        </div>
+                        <div class="item">
+                            <label>خدمات :</label>
+                            <input type="text" name="services" id="services">
+                        </div>
+                        <div class="item">
+                            <label>تصویر:</label>
+                            <input type="file" name="image" id="image">
+                        </div>
+                        <div class="item">
+                            <label>شرکت مسافرتی:</label>
+                            <input type="text" name="travelcompany" id="travelcompany">
+                        </div>
+                        <div class="btn">
+                            <input type="submit" value="افزودن">
+                        </div>
+                        <span class="modal-close-add"><i class="fa fa-times"></i></span>
+                    </form>
+                </div>
+            </div>
+            <div class="pointer">
+                <img style="width:20%" src="/assets/images/pointer.png" alt="#">
+            </div>
+            <div class="out">
+                <a href="/logout" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">خروج</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
-                    <input type="text" name="tour_id" id="tour_id" style="display:none;">
-                    توقف: <input type="text" name="city" id="city">
-                    زمان: <input type="time" name="time" id="time">
-                    رفت/برگشت: <input type="text" name="status" id="status">
-                    <input type="submit" value="افزودن">
                 </form>
-            </section>
+            </div>
 
-
-            <section style="margin-top: 10px;">
-                <div class="jobs-grid">
-                    <div class="jobs">
-                        <h2>خریدهای آسان گشت</h2>
-                        <!-- <h2>Jobs <small>See all jobs <span class="las la-arrow-left"></span></small></h2> -->
-                        <div class="table-responsive">
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <th>دسته بندی</th>
-                                        <th>نوع</th>
-                                        <th>شماره پیگیری</th>
-                                        <th>لغو شده</th>
-                                    </tr>
-                                    @foreach ($purchase as $item)
-                                        <tr>
-                                            <td>
-                                                <div>
-                                                    {{ $item->tour->tag }}
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    {{ $item->tour->type }}
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    {{ $item->track }}
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    {{ $item->cancel }}
-                                                </div>
-                                            </td>
-
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+        </div>
+        <div class="main-content">
+            <div class="wrapper">
+                <div class="cards">
+                    <div class="card-single">
+                        <div class="card-info">
+                            <span>خرید ها</span>
+                            <h2>85</h2>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-money"></i>
+                        </div>
+                    </div>
+                    <div class="card-single">
+                        <div class="card-info">
+                            <span>کاربران</span>
+                            <h2>46</h2>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-users"></i>
+                        </div>
+                    </div>
+                    <div class="card-single">
+                        <div class="card-info">
+                            <span>تورها</span>
+                            <h2>45</h2>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-map"></i>
                         </div>
                     </div>
                 </div>
-            </section>
-            <section style="margin-top: 10px;">
-                <div class="jobs-grid">
-                    <div class="jobs">
-                        <h2>کاربران</h2>
-                        <!-- <h2>Jobs <small>See all jobs <span class="las la-arrow-left"></span></small></h2> -->
-                        <div class="table-responsive">
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <th>نام کاربری</th>
-                                        <th>نام</th>
-                                        <th>نام خانوادگی</th>
-                                        <th>اعتبار</th>
-                                        <th>شماره موبایل</th>
-                                        <th>ایمیل</th>
-                                        <th>نقش</th>
-                                        <th>حذف</th>
-                                    </tr>
-                                    @foreach ($user as $item)
-                                        <tr>
-                                            <td>
-                                                <div>
-                                                    {{ $item->username }}
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    {{ $item->firstname }}
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    {{ $item->lastname }}
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    {{ $item->credit }}
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    {{ $item->phonenumber }}
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    {{ $item->email }}
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    {{ $item->role }}
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <a href="admin/{{ $item->id }}/deleteuser"><img src="assets/images/delete.png" alt="" width="40" /></a>
-                                                </div>
-                                            </td>
-                                        </tr>
+                <div class="tours">
+                    <h2>تور های آسان گشت</h2>
+                    <hr>
+                    <table id="items-table">
+                        <tbody>
+                            <tr>
+                                <th>مبدا </th>
+                                <th>مقصد</th>
+                                <th>مبلغ</th>
+                                <th>ظرفیت</th>
+                                <th>حذف</th>
+                                <th>جزییات بیشتر</th>
+                            </tr>
+                            @foreach ($tour as $item)
+                            <tr>
+                                <td>{{ $item->from }}</td>
+                                <td>{{ $item->to }}</td>
+                                <td>{{ $item->amount }}</td>
+                                <td>{{ $item->capacity }}</td>
+
+                                <td>
+                                    @php
+                                    $counter = 0;
+                                    @endphp
+                                    @foreach ($purchase as $temp)
+                                    @if ($temp->tour->id==$item->id&&$temp->cancel==0)
+                                    <p style="display:none;">{{$counter++ }}</p>
+                                    @endif
                                     @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                                    @if ($counter == 0)
+
+                                    <a class="fa fa-times" href="admin/{{ $item->id }}/deletetour"></a>
+
+                                    @else
+                                    <a class="fa fa-times" style="cursor:pointer" onclick="alert('تعدادی در این تور شرکت دارند امکان حذف وجود ندارد!')"></a>
+                                    @endif
+                                </td>
+                                <!-- <td>
+                                    <a onclick="edit({{ $item }})"><img src="assets/images/edit.png" alt="" width="23" /></a>
+                                </td> -->
+                                <td>
+                                    <a class="modal-btn" onclick="edit({{$item}})"><i class="fa fa-link"></i></a>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
-            </section>
-        </main>
+                <div class="purchases">
+                    <h2>خریدهای آسان گشت</h2>
+                    <hr>
+                    <table id="items-table">
+                        <tbody>
+                            <tr>
+                                <th>دسته بندی</th>
+                                <th>نوع</th>
+                                <th>شماره پیگیری</th>
+                                <th>لغو شده</th>
+                            </tr>
+                            @foreach ($purchase as $item)
+                            <tr>
+                                <td>{{ $item->tour->tag }}</td>
+                                <td>{{ $item->tour->type }}</td>
+                                <td>{{ $item->track }}</td>
+                                <td>{{ $item->cancel }} </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                <div class="users">
+                    <h2>کاربران</h2>
+                    <hr>
+                    <table id="items-table">
+                        <tbody>
+                            <tr>
+                                <th>نام کاربری</th>
+                                <th>نام</th>
+                                <th>نام خانوادگی</th>
+                                <th>اعتبار</th>
+                                <th>شماره موبایل</th>
+                                <th>ایمیل</th>
+                                <th>نقش</th>
+                                <th>حذف</th>
+                            </tr>
+                            @foreach ($user as $item)
+                            <tr>
+                                <td>{{ $item->username }}</td>
+                                <td>{{ $item->firstname }}</td>
+                                <td>{{ $item->lastname }}</td>
+                                <td>{{ $item->credit }}</td>
+                                <td>{{ $item->phonenumber }}</td>
+                                <td>{{ $item->email }}</td>
+                                <td>{{ $item->role }}</td>
+                                <td><a class="fa fa-times" href="admin/{{ $item->id }}/deleteuser"></a></td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-    </div>
-    <label for="sidebar-toggle" class="bode-label">
-
-    </label>
-    <script src="assets/js/index.js"></script>
+            <script src="assets/js/adminpanel.js"></script>
 </body>
 
 </html>

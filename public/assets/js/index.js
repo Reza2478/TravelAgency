@@ -99,30 +99,7 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 }
-function edit(item) {
-    document.getElementById("edit").style.display = "block";
-    document.getElementById("id").value = item.id;
-    document.getElementById("from").value = item.from;
-    document.getElementById("to").value = item.to;
-    document.getElementById("amount").value = item.amount;
-    document.getElementById("capacity").value = item.capacity;
-    document.getElementById("departuredate").value = item.departuredate;
-    document.getElementById("returndate").value = item.returndate;
-    document.getElementById("timewent").value = item.timewent;
-    document.getElementById("timeback").value = item.timeback;
-    document.getElementById("sale").value = item.sale;
-    document.getElementById("staytime").value = item.staytime;
-    document.getElementById("hotel").value = item.hotel;
-    document.getElementById("travelcompany").value = item.travelcompany;
-    document.getElementById("tag").value = item.tag;
-    document.getElementById("type").value = item.type;
-    document.getElementById("services").value = item.services;
-    document.getElementById("image").value = item.image;
-}
-function addtimeline(item) {
-    document.getElementById("tour_id").value = item.id;
-    document.getElementById("add").style.display = "block";
-}
+
 
 
 
