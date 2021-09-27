@@ -227,7 +227,7 @@
                     <div class="card-single">
                         <div class="card-info">
                             <span>خرید ها</span>
-                            <h2>85</h2>
+                            <h2>{{$purchase->count()}}</h2>
                         </div>
                         <div class="icon">
                             <i class="fa fa-money"></i>
@@ -236,7 +236,7 @@
                     <div class="card-single">
                         <div class="card-info">
                             <span>کاربران</span>
-                            <h2>46</h2>
+                            <h2>{{$user->count()-1}}</h2>
                         </div>
                         <div class="icon">
                             <i class="fa fa-users"></i>
@@ -245,7 +245,7 @@
                     <div class="card-single">
                         <div class="card-info">
                             <span>تورها</span>
-                            <h2>45</h2>
+                            <h2>{{$tour->count()}}</h2>
                         </div>
                         <div class="icon">
                             <i class="fa fa-map"></i>
@@ -338,6 +338,7 @@
                                 <th>حذف</th>
                             </tr>
                             @foreach ($user as $item)
+                            @if ($item->username!='admin')
                             <tr>
                                 <td>{{ $item->username }}</td>
                                 <td>{{ $item->firstname }}</td>
@@ -348,6 +349,7 @@
                                 <td>{{ $item->role }}</td>
                                 <td><a class="fa fa-times" href="admin/{{ $item->id }}/deleteuser"></a></td>
                             </tr>
+                            @endif
                             @endforeach
                         </tbody>
                     </table>
