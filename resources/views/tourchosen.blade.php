@@ -88,7 +88,6 @@
                         </h2>
                         <a href="/user">پنل کاربری</a>
                     </div>
-
                 @endguest
             </div>
             <ul class="rslides">

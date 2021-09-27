@@ -23,6 +23,8 @@ class userOrAdmin
             return redirect('admin');
         } else if($role == 'user') {
             return $next($request);
+        }else{
+            abort("404");
         }
     }
 }
