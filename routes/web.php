@@ -35,12 +35,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('admin/addtimeline', [AdminController::class, 'addtimeline']);
     Route::post('admin/edit', [AdminController::class, 'edit']);
 });
-Route::get('/', [HomeController::class, 'index']);
 Route::get('tour', [TourController::class, 'index']);
+Route::get('/', [HomeController::class, 'index']);
 Route::post('tourchosen', [TourchosenController::class, 'index']);
-
-
 
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
