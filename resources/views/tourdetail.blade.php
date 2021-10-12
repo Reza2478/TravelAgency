@@ -15,8 +15,8 @@
         <div class="masthead">
             <div class="landing-nav">
                 <ul>
-                    <li><a href="index.php">صفحه اصلی</a></li>
-                    <li><a href="product.php">فروشگاه</a></li>
+                    <li><a href="/">صفحه اصلی</a></li>
+                    <li><a href="/tour">فروشگاه</a></li>
                 </ul>
             </div>
             <div class="logo">

@@ -210,7 +210,6 @@ body {
     direction: rtl;
     font-family: "academy", "Myriad Pro", Tahoma;
     color: #555;
-    background: url(/assets/images/cover/backcover.jpg);
     background-size: cover;
     background-attachment: fixed;
 }
