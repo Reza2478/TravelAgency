@@ -82,43 +82,30 @@
                 <div class="user-interest">
                     <h2>علاقه مندی های شما</h2>
                     <hr>
-                    <ul>
-                        @if ($count == 0)
-                        <p>آیتمی وجود ندارد :)</p>
-                        @else
-                        @foreach ($all_interests as $item)
-                        @if (in_array($item->id, $user_interests))
-                        <li>{{ $item->cityname }}</li>
-                        @endif
-                        @endforeach
-                        @endif
-                    </ul>
-                    <h2>افزودن علاقه مندی</h2>
-                    <hr>
-                    <form action="/user/edit" method="post">
+                    <form action="/user/edit" method="POST">
                         <div class="items">
-                            @csrf
-                            @php
-                            $counter = 0;
-                            @endphp
-                            @foreach ($all_interests as $item)
-                            @if (!in_array($item->id, $user_interests))
-                            <p style="display:none;">{{ $counter++ }}</p>
-                            <span>
-                                <input type="checkbox" name="interest_id[]" value="{{ $item->id }}" />{{ $item->cityname }}
-                            </span>
-                            @endif
-                            @endforeach
-                            @if ($counter == 0)
-                            <p>تمام آیتم‌ها انتخاب شده است!</p>
-                            @else
+                            <div>
+                                @csrf
+                                @foreach($all_interests as $interest)
+                                @if(in_array($interest->id,$user_interests))
+                                <span>
+                                    <input type="checkbox" name="interest_id[]" value="{{ $interest->id }}" checked>{{ $interest->cityname }}
+                                </span>
+                                @else
+                                <span>
+                                    <input type="checkbox" name="interest_id[]" value="{{ $interest->id }}">{{ $interest->cityname }}
+                                </span>
+                                @endif
+                                <br>
+                                @endforeach
+                            </div>
 
                         </div>
                         <div class="parent_btn">
                             <button type="submit">افزودن</button>
                         </div>
-                        @endif
                     </form>
+
                 </div>
             </div>
         </div>

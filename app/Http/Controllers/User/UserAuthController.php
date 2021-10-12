@@ -21,13 +21,12 @@ class UserAuthController extends Controller
         $details=$user->load(['purchases.tour']);
         $user_interests=array_column($user->interests->toArray(),'id');
         $all_interests=Interest::all();
-        $count=count($user_interests);
-        return view('user',compact('user','details','all_interests','user_interests','count'));
+        return view('user',compact('user','details','all_interests','user_interests'));
     }
     public function edit_interest(Request $request)
     {
         $user = Auth::user();
-        $user->interests()->attach($request->interest_id);
+        $user->interests()->sync($request->interest_id);
         return back();
     }
     public function cancel($id)
