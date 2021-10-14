@@ -18,6 +18,7 @@ class CreatePurchasesTable extends Migration
             $table->unsignedInteger('tour_id');
             $table->foreign('tour_id')->references('id')->on('tours')->onUpdate('cascade')->onDelete('cascade');
             $table->bigInteger('track');
+            $table->string('number',100);
             $table->boolean('cancel')->default(0);
             $table->timestamps();
         });

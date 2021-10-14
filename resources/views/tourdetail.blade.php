@@ -24,12 +24,30 @@
             </div>
         </div>
         <div class="pic">
-            <img src="{{ $info->image }}" alt="#" />
+            <img src="/uploads/{{ $info->image }}" alt="#" />
             <div class="buy">
-                @if ($remain>=0)
-                <a href="/user/{{ $info->id}}/buy" class="price">شرکت در تور</a>
+                <h1>!! لطفا هنگام خرید به ظرفیت تور توجه داشته باشید !!</h1>
+                @if ($remain>=0 and $accept==1 and $cancel==0)
+                <form action="/user/buy" method="post">
+                    @csrf
+                    <label for="number">تعداد: </label>
+                    <input type="text" value="{{$info->id}}" name="id" id="id" style="display:none" />
+                    <input type="text" value="1" name="number" id="number" />
+                    <button type="submit" class="price">خرید</button>
+                </form>
+                @elseif ($remain>=0 and $accept==0 and $cancel==1)
+                <h1>شما قبلا از شرکت در این تور منصرف شده اید در صورت تمایل می‌توانید مجدد خرید کنید !</h1>
+                <form action="/user/buy" method="post">
+                    @csrf
+                    <label for="number">تعداد: </label>
+                    <input type="text" value="{{$info->id}}" name="id" id="id" style="display:none" />
+                    <input type="text" value="1" name="number" id="number" />
+                    <button type="submit" class="price">خرید</button>
+                </form>
+                @elseif($accept==0 and $remain>=0)
+                <h1>شما هم اکنون در این تور شرکت دارید !</h1>
                 @else
-                <a onclick="alert('اعتبار شما برای شرکت در تور ناکافیست!')" class="price">شرکت در تور</a>
+                <h1>اعتبار شما برای شرکت در تور ناکافیست!</h1>
                 @endif
             </div>
         </div>

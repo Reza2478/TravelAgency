@@ -119,7 +119,7 @@ input, select {
 
 @font-face {
     font-family: 'academy';
-    src: url(/assets/fonts/dinar.woff) format("woff")
+    src: url(/assets/fonts/WebYekan.woff) format("woff");
 }
 
 h1, h2, h3, h4, h5, h6 {

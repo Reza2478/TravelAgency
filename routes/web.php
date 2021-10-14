@@ -28,7 +28,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('admin/{id}/deleteuser', [AdminController::class, 'deleteuser']);
     Route::get('user', [UserAuthController::class, 'index']);
     Route::post('user/edit', [UserAuthController::class, 'edit_interest']);
-    Route::get('user/{id}/buy', [TourdetailController::class, 'buy']);
+    Route::post('user/buy', [TourdetailController::class, 'buy']);
     Route::get('user/{id}/cancel', [UserAuthController::class, 'cancel']);
     Route::get('addtour', [AdminController::class, 'show']);
     Route::post('addtour/insert', [AdminController::class, 'insert']);

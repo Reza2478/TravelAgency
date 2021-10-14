@@ -35,13 +35,15 @@ class UserAuthController extends Controller
         $user = Auth::user();
         $temp=Purchase::find($id);
         $tour_id=$temp->tour_id;
+        $number=$temp->number;
         $tour=Tour::find($tour_id);
-        $amount=$tour->amount;
+        $amount=$tour->amount*$number;
         $credit=$user->credit;
         $result=$credit+$amount;
+        $capacity=$tour->capacity+$number;
         User::where('id', $user->id)->update(['credit' => $result]);
         Purchase::where('id', $temp->id)->update(['cancel' => 1]);
-        Tour::where('id', $tour_id)->increment('capacity');
+        Tour::where('id', $tour_id)->update(['capacity'=>$capacity]);
         return redirect('user');
     }
 }

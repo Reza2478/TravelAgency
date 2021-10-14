@@ -44,12 +44,13 @@
                     <div class="figure_parent">
                         <figure>
                             <div class="image_content">
-                                <img src="{{ $item->tour->image }}" alt="#">
+                                <img src="/uploads/{{ $item->tour->image }}" alt="#">
                             </div>
                             <figcaption>
                                 <h1>تور {{ $item->tour->to }}</h1>
                                 <h2>مبدا :{{ $item->tour->from }}</h2>
                                 <h2>مقصد :{{ $item->tour->to }}</h2>
+                                <h2>تعداد :{{ $item->number }}</h2>
                                 <h2>پیگیری: {{$item->track}}</h2>
                                 <div class="twice">
                                     <ul>

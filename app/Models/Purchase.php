@@ -9,7 +9,8 @@ class Purchase extends Model
 {
     protected $fillable = [
         'tour_id',
-        'track'
+        'track',
+        'number'
     ];
     public function tour()
     {
