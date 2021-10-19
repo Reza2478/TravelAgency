@@ -9,7 +9,7 @@ for (let i = 0; i < modalBtn.length; i++) {
 }
 modalClose.addEventListener("click", function () {
     modalBg.classList.remove('bg-active');
-})
+});
 
 var modalBgAdd = document.querySelector('.modal-bg-add');
 var modalButton=document.querySelector('.modal-button');
@@ -20,7 +20,19 @@ modalButton.addEventListener("click", function () {
 
 modalCloseAdd.addEventListener("click", function () {
     modalBgAdd.classList.remove("bg-active-add");
-})
+});
+
+var modalBgTimeline = document.querySelector('.modal-bg-timeline');
+var mdlBtn=document.querySelector('.mdl-btn');
+var modalCloseTimeline=document.querySelector('.modal-close-timeline');
+mdlBtn.addEventListener("click", function () {
+    modalBgTimeline.classList.add("bg-active-timeline");
+});
+
+modalCloseTimeline.addEventListener("click", function () {
+    modalBgTimeline.classList.remove("bg-active-timeline");
+});
+
 
 function edit(item) {
     document.getElementById("id").value = item.id;
@@ -34,14 +46,14 @@ function edit(item) {
     document.getElementById("timeback").value = item.timeback;
     document.getElementById("sale").value = item.sale;
     document.getElementById("staytime").value = item.staytime;
-    document.getElementById("hotel").value = item.hotel;
     document.getElementById("travelcompany").value = item.travelcompany;
     document.getElementById("tag").value = item.tag;
     document.getElementById("type").value = item.type;
-    document.getElementById("services").value = item.services;
     document.getElementById("image").value = item.image;
 }
-function addtimeline(item) {
+
+function addtimeline(item){
     document.getElementById("tour_id").value = item.id;
-    document.getElementById("add").style.display = "block";
+    sessionStorage.setItem("tour_id", item.id);
+    
 }

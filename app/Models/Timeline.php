@@ -9,8 +9,9 @@ class Timeline extends Model
 {
     protected $fillable = [
         'city',
-        'time',
-        'status',
+        'staytime',
+        'hotel',
+        'services',
         'tour_id',
     ];
     use HasFactory;

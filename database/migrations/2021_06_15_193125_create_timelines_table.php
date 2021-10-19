@@ -16,8 +16,9 @@ class CreateTimelinesTable extends Migration
         Schema::create('timelines', function (Blueprint $table) {
             $table->increments('id');
             $table->string('city',100);
-            $table->string('time',100);
-            $table->integer('status');
+            $table->string('hotel',100);
+            $table->string('services',500);
+            $table->integer('staytime');
             $table->unsignedInteger('tour_id');
             $table->foreign('tour_id')->references('id')->on('tours')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();

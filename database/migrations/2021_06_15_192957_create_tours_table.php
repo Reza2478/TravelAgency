@@ -28,8 +28,6 @@ class CreateToursTable extends Migration
             $table->boolean('sale')->default(0);
             $table->string('type',20);
             $table->integer('staytime');
-            $table->string('services',100);
-            $table->string('hotel',100);
             $table->string('travelcompany',100);
             $table->timestamps();
         });

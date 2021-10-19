@@ -18,8 +18,6 @@ class Tour extends Model
         'timeback',
         'tag',
         'type',
-        'services',
-        'hotel',
         'travelcompany',
         'image',
         'staytime'

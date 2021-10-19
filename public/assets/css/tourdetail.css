@@ -263,14 +263,15 @@ hr {
 
 .cover {
     display: grid;
+    grid-gap: 10px;
     grid-template-columns: repeat(8, 1fr);
     grid-auto-rows: minmax(50px, auto);
-
     grid-template-areas:
         "masthead masthead masthead masthead masthead masthead masthead masthead"
-        "pic pic pic pic pic pic pic pic"
         ". . . . . . . ."
-        ".  parent parent parent parent parent parent ."
+        "pic pic pic pic parent parent parent parent"
+        ". . . . . . . ."
+        ". . buy buy buy buy . ."
         ". . . . . . . .";
 }
 .masthead {
@@ -321,6 +322,8 @@ hr {
 .parent {
     grid-area: parent;
     display: grid;
+
+    margin-left: 20px;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: min-max(10px, auto);
     grid-gap: 20px;
@@ -371,35 +374,42 @@ hr {
     grid-area: pic;
     position: relative;
     display: grid;
+    margin-right: 20px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: minmax(50px, auto);
-    grid-template-areas:
-        "image image image"
-        ". buy .";
+    grid-template-areas: "image image image";
 }
 
 .buy {
     grid-area: buy;
-    position: absolute;
     text-align: center;
-    top: 0%;
-    z-index: 1000;
     width: 100%;
 }
-.buy a{
-    background:#25a65b;
-    padding:20px;
-    color:#fff;
-    font-size:25px;
+.buy h1 {
+    font-size: 20px;
+    margin-bottom: 25px;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
 }
-.buy a:hover{
-    background:#e74c3c;
-
+.buy button {
+    background: #25a65b;
+    font-family: "academy";
+    color: #fff;
+    margin-right: 5px;
+}
+.buy button:hover {
+    background: #e74c3c;
+}
+.buy form input {
+    height: 32px;
+    font-size: 14px;
+    border: 2px solid #25a65b;
+    border-radius: 3px;
 }
 .pic img {
     grid-area: image;
     height: 500px;
     width: 100%;
+    border-radius: 7px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -409,10 +419,10 @@ hr {
 .timeline {
     grid-area: timeline;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-template-areas:
-        "titr titr"
-        "right left";
+        ". titr titr titr ."
+        ". table table table .";
     text-align: center;
     grid-gap: 10px;
 }
@@ -425,16 +435,10 @@ hr {
     font-size: 30px;
     text-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
 }
-.timeline .right {
-    grid-area: right;
-    text-align: center;
-}
-.timeline .left {
-    grid-area: left;
-    text-align: center;
-}
+
 .timeline table {
     width: 100%;
+    grid-area: table;
 }
 .timeline h2 {
     font-size: 20px;
@@ -461,7 +465,6 @@ hr {
     background-color: #04aa6d;
     color: white;
 }
-
 
 :root {
     --bg: #24aa94;
@@ -511,7 +514,7 @@ footer .content a:hover {
 }
 
 footer input {
-    font-family: 'academy';
+    font-family: "academy";
     border-style: solid;
     line-height: 24px;
     padding: 12px 16px;
@@ -530,13 +533,15 @@ footer textarea::placeholder {
     color: var(--text);
 }
 
-footer input[type='email'], footer textarea {
+footer input[type="email"],
+footer textarea {
     background-color: transparent;
     border-color: var(--text);
     color: var(--text);
 }
 
-footer input[type='email']:hover, footer input[type='email']:focus {
+footer input[type="email"]:hover,
+footer input[type="email"]:focus {
     border-color: var(--hover);
     color: var(--hover);
 }
@@ -544,7 +549,7 @@ footer input[type='email']:hover, footer input[type='email']:focus {
 footer textarea {
     resize: none;
     height: 150px;
-    font-family: 'academy';
+    font-family: "academy";
     border-style: solid;
     line-height: 24px;
     padding: 12px 16px;
@@ -555,19 +560,20 @@ footer textarea {
     border-width: 2px;
 }
 
-footer input[type='submit'] {
+footer input[type="submit"] {
     background-color: var(--text);
     color: var(--bg);
     text-transform: uppercase;
     border: none;
 }
 
-footer textarea:hover, footer textarea:focus {
+footer textarea:hover,
+footer textarea:focus {
     border-color: var(--hover);
     color: var(--hover);
 }
 
-footer input[type='submit']:hover {
+footer input[type="submit"]:hover {
     background-color: var(--hover);
 }
 
@@ -611,11 +617,11 @@ footer .notice strong {
 /*----------------------------11. search-box----------------------------*/
 
 .search-box {
-    background: #E74C3C;
+    background: #e74c3c;
     width: 100%;
     float: right;
     z-index: 10000;
-    padding: 30px 10px
+    padding: 30px 10px;
 }
 
 .search-box .container .title {
@@ -643,7 +649,7 @@ footer .notice strong {
     width: 150px;
     padding-left: 5px;
     color: #3a3a3a;
-    border-left: 2px solid #E74C3C;
+    border-left: 2px solid #e74c3c;
     cursor: pointer;
 }
 
@@ -696,7 +702,7 @@ footer .notice strong {
 }
 
 .dropdown-list ul li:hover {
-    background-color: #E74C3C;
+    background-color: #e74c3c;
     color: #fff;
 }
 
@@ -706,7 +712,7 @@ footer .notice strong {
 }
 
 .search-input {
-    font-family: 'academy';
+    font-family: "academy";
     width: 90%;
     height: 100%;
     border: 0;
@@ -720,13 +726,13 @@ footer .notice strong {
     height: 100%;
     border: 0;
     cursor: pointer;
-    font-family: 'academy';
-    color:#3a3a3a;
+    font-family: "academy";
+    color: #3a3a3a;
 }
 
 .btn .fa-search {
     font-size: 20px;
-    color: #E74C3C;
+    color: #e74c3c;
 }
 
 .btn .fa-search:hover {

@@ -39,6 +39,73 @@
             </div>
         </div>
 
+        <?php
+        $temp = "<script>document.getElementById('tp')</script>";
+
+        ?>
+        <div>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>توقف</th>
+                        <th>هتل</th>
+                        <th>خدمات</th>
+                        <th>اقامت</th>
+                        <th>حذف</th>
+
+                    </tr>
+                    @foreach ($timeline as $item)
+                    
+                    @if($item->tour_id = 1) 
+                        <tr>
+                            <td>{{$item->city}}</td>
+                            <td>{{$item->hotel}}</td>
+                            <td>{{$item->services}}</td>
+                            <td>{{$item->staytime}}</td>
+                        </tr>
+                    @endif
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="modal-bg-timeline">
+            <div class="modal">
+                <div class="head">
+                    <h1>برنامه سفر</h1>
+                    <hr />
+                </div>
+
+
+                <form action="/admin/addtimeline" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="text" name="tour_id" id="tour_id" style="display:none;">
+                    <div class="item">
+                        <label>توقف:</label>
+                        <input type="text" name="city" id="city">
+                    </div>
+                    <div class="item">
+                        <label>هتل: </label>
+                        <input type="text" name="hotel" id="hotel">
+                    </div>
+                    <div class="item">
+                        <label>خدمات: </label>
+                        <input type="text" name="services" id="services">
+                    </div>
+                    <div class="item">
+                        <label>اقامت: </label>
+                        <input type="text" name="staytime" id="staytime">
+                    </div>
+
+                    <div class="btn">
+                        <input type="submit" value="افزودن">
+                    </div>
+                    <span class="modal-close-timeline"><i class="fa fa-times"></i></span>
+                </form>
+            </div>
+        </div>
+
         <div class="modal-bg">
             <div class="modal">
                 <div class="head">
@@ -89,20 +156,12 @@
                         <input type="text" name="staytime" id="staytime">
                     </div>
                     <div class="item">
-                        <label>هتل: </label>
-                        <input type="text" name="hotel" id="hotel">
-                    </div>
-                    <div class="item">
                         <label>دسته بندی: </label>
                         <input type="text" name="tag" id="tag">
                     </div>
                     <div class="item">
                         <label>نوع : </label>
                         <input type="text" name="type" id="type">
-                    </div>
-                    <div class="item">
-                        <label>خدمات :</label>
-                        <input type="text" name="services" id="services">
                     </div>
                     <div class="item">
                         <label>تصویر:</label>
@@ -179,20 +238,12 @@
                             <input type="text" name="staytime" id="staytime">
                         </div>
                         <div class="item">
-                            <label>هتل: </label>
-                            <input type="text" name="hotel" id="hotel">
-                        </div>
-                        <div class="item">
                             <label>دسته بندی: </label>
                             <input type="text" name="tag" id="tag">
                         </div>
                         <div class="item">
                             <label>نوع : </label>
                             <input type="text" name="type" id="type">
-                        </div>
-                        <div class="item">
-                            <label>خدمات :</label>
-                            <input type="text" name="services" id="services">
                         </div>
                         <div class="item">
                             <label>تصویر:</label>
@@ -258,12 +309,13 @@
                     <table id="items-table">
                         <tbody>
                             <tr>
-                                <th>مبدا </th>
+                                <th>مبدا</th>
                                 <th>مقصد</th>
                                 <th>مبلغ</th>
                                 <th>ظرفیت</th>
                                 <th>حذف</th>
                                 <th>جزییات بیشتر</th>
+                                <th>برنامه سفر</th>
                             </tr>
                             @foreach ($tour as $item)
                             <tr>
@@ -289,13 +341,15 @@
                                     <a class="fa fa-times" style="cursor:pointer" onclick="alert('تعدادی در این تور شرکت دارند امکان حذف وجود ندارد!')"></a>
                                     @endif
                                 </td>
-                                <!-- <td>
-                                    <a onclick="edit({{ $item }})"><img src="assets/images/edit.png" alt="" width="23" /></a>
-                                </td> -->
                                 <td>
                                     <a class="modal-btn" onclick="edit({{$item}})"><i class="fa fa-link"></i></a>
                                 </td>
+                                <td>
+                                    <a class="mdl-btn" onclick="addtimeline({{$item}})"><i class="fa fa-plus"></i></a>
+                                </td>
                             </tr>
+
+
                             @endforeach
                         </tbody>
                     </table>

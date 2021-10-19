@@ -18,8 +18,9 @@ class AdminController extends Controller
     {
         $tour = Tour::all();
         $user = User::all();
+        $timeline = Timeline::all();
         $purchase = Purchase::all();
-        return view('admin', compact('tour', 'user', 'purchase'));
+        return view('admin', compact('tour', 'user', 'purchase','timeline'));
     }
     public function deletetour($id)
     {
@@ -46,8 +47,6 @@ class AdminController extends Controller
             'timeback' => $request->timeback,
             'tag' => $request->tag,
             'type' => $request->type,
-            'services' => $request->services,
-            'hotel' => $request->hotel,
             'travelcompany' => $request->travelcompany,
             'image' => $request->image,
             'staytime' => $request->staytime,
@@ -98,10 +97,7 @@ class AdminController extends Controller
 
         return back();
     }
-    public function show()
-    {
-        return view('addtour');
-    }
+    
     public function insert(Request $request)
     {
         $image = $request->file('image');
@@ -118,8 +114,6 @@ class AdminController extends Controller
             'timeback' => $request->timeback,
             'tag' => $request->tag,
             'type' => $request->type,
-            'services' => $request->services,
-            'hotel' => $request->hotel,
             'travelcompany' => $request->travelcompany,
             'image' => $imagename,
             'staytime' => $request->staytime,
@@ -131,10 +125,11 @@ class AdminController extends Controller
     {
         $data = [
             'city' => $request->city,
-            'time' => $request->time,
-            'status' => $request->status,
+            'staytime' => $request->staytime,
+            'hotel' => $request->hotel,
+            'services'=>$request->services,
             'tour_id' => $request->tour_id,
-        ];
+        ];   
         Timeline::create($data);
         return redirect('admin');
     }

@@ -25,31 +25,31 @@
         </div>
         <div class="pic">
             <img src="/uploads/{{ $info->image }}" alt="#" />
-            <div class="buy">
-                <h1>!! لطفا هنگام خرید به ظرفیت تور توجه داشته باشید !!</h1>
-                @if ($remain>=0 and $accept==1 and $cancel==0)
-                <form action="/user/buy" method="post">
-                    @csrf
-                    <label for="number">تعداد: </label>
-                    <input type="text" value="{{$info->id}}" name="id" id="id" style="display:none" />
-                    <input type="text" value="1" name="number" id="number" />
-                    <button type="submit" class="price">خرید</button>
-                </form>
-                @elseif ($remain>=0 and $accept==0 and $cancel==1)
-                <h1>شما قبلا از شرکت در این تور منصرف شده اید در صورت تمایل می‌توانید مجدد خرید کنید !</h1>
-                <form action="/user/buy" method="post">
-                    @csrf
-                    <label for="number">تعداد: </label>
-                    <input type="text" value="{{$info->id}}" name="id" id="id" style="display:none" />
-                    <input type="text" value="1" name="number" id="number" />
-                    <button type="submit" class="price">خرید</button>
-                </form>
-                @elseif($accept==0 and $remain>=0)
-                <h1>شما هم اکنون در این تور شرکت دارید !</h1>
-                @else
-                <h1>اعتبار شما برای شرکت در تور ناکافیست!</h1>
-                @endif
-            </div>
+        </div>
+        <div class="buy">
+            <h1>!! لطفا هنگام خرید به ظرفیت تور توجه داشته باشید !!</h1>
+            @if ($remain>=0 and $accept==1 and $cancel==0)
+            <form action="/user/buy" method="post">
+                @csrf
+                <label for="number">تعداد: </label>
+                <input type="text" value="{{$info->id}}" name="id" id="id" style="display:none" />
+                <input type="text" value="1" name="number" id="number" />
+                <button type="submit" class="price">خرید</button>
+            </form>
+            @elseif ($remain>=0 and $accept==0 and $cancel==1)
+            <h1>شما قبلا از شرکت در این تور منصرف شده اید در صورت تمایل می‌توانید مجدد خرید کنید !</h1>
+            <form action="/user/buy" method="post">
+                @csrf
+                <label for="number">تعداد: </label>
+                <input type="text" value="{{$info->id}}" name="id" id="id" style="display:none" />
+                <input type="text" value="1" name="number" id="number" />
+                <button type="submit" class="price">خرید</button>
+            </form>
+            @elseif($accept==0 and $remain>=0)
+            <h1>شما هم اکنون در این تور شرکت دارید !</h1>
+            @else
+            <h1>اعتبار شما برای شرکت در تور ناکافیست!</h1>
+            @endif
         </div>
         <div class="parent">
             <div class="content">
@@ -67,62 +67,38 @@
                         <li>ساعت برگشت : {{ $info->timeback }}</li>
                         <li>ظرفیت تور : {{ $info->capacity }}</li>
                         <li>مدت اقامت : {{ $info->staytime }} روز</li>
-                        <li>هتل : {{ $info->hotel }}</li>
                         <li>شرکت : {{ $info->travelcompany }} </li>
-                        <li>خدمات تور : {{ $info->services }}</li>
                         <li>هزینه تور : {{ $info->amount }} تومان</li>
                     </ul>
                 </div>
             </div>
 
-
-
-
             <div class="timeline">
                 <div class="titr">
-                    <h1>زمان بندی</h1>
+                    <h1>برنامه سفر</h1>
                     <hr>
                 </div>
-                <div class="right">
-                    <h2>مسیر رفت</h2>
-                    <hr>
-                    <br>
-                    <table>
-                        <tr>
-                            <th>توقف</th>
-                            <th>زمان</th>
-                        </tr>
-                        @foreach ($details as $item)
-                        @if ($item->status == 0)
-                        <tr>
-                            <td>{{ $item->city }}</td>
-                            <td>{{ $item->time }}</td>
-                        </tr>
-                        @endif
-                        @endforeach
-                    </table>
-                </div>
-                <div class="left">
-                    <h2>مسیر برگشت</h2>
-                    <hr>
-                    <br>
-                    <table>
-                        <tr>
-                            <th>توقف</th>
-                            <th>زمان</th>
-                        </tr>
-                        @foreach ($details as $item)
-                        @if ($item->status == 1)
-                        <tr>
-                            <td>{{ $item->city }}</td>
-                            <td>{{ $item->time }}</td>
-                        </tr>
-                        @endif
-                        @endforeach
-                    </table>
-                </div>
+                <br>
+                <table>
+                    <tr>
+                        <th>توقف</th>
+                        <th>مدت اقامت</th>
+                        <th>هتل</th>
+                        <th>خدمات</th>
+                    </tr>
+                    @foreach ($details as $item)
+                    <tr>
+                        <td>{{ $item->city }}</td>
+                        <td>{{ $item->staytime }}</td>
+                        <td>{{ $item->hotel }}</td>
+                        <td>{{ $item->services }}</td>
+                    </tr>
+                    @endforeach
+                </table>
             </div>
+
         </div>
+    </div>
     </div>
 
     <div class="clearfix"></div>

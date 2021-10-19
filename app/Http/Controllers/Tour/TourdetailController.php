@@ -4,12 +4,10 @@ namespace App\Http\Controllers\Tour;
 
 use App\Models\Tour;
 use App\Models\Purchase;
-use App\Models\Timeline;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use phpDocumentor\Reflection\PseudoTypes\False_;
 
 class TourdetailController extends Controller
 {
@@ -28,8 +26,6 @@ class TourdetailController extends Controller
             if ($item->tour->id == $id && $item->cancel == 1) 
                 $cancel=1;
         }
-        // print($cancel);
-        // print($accept);
         return view('tourdetail',compact('info','details','remain','accept','cancel'));
     }
     public function buy(Request $request)

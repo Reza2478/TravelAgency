@@ -30,10 +30,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('user/edit', [UserAuthController::class, 'edit_interest']);
     Route::post('user/buy', [TourdetailController::class, 'buy']);
     Route::get('user/{id}/cancel', [UserAuthController::class, 'cancel']);
-    Route::get('addtour', [AdminController::class, 'show']);
     Route::post('addtour/insert', [AdminController::class, 'insert']);
     Route::post('admin/addtimeline', [AdminController::class, 'addtimeline']);
     Route::post('admin/edit', [AdminController::class, 'edit']);
+    
 });
 Route::get('tour', [TourController::class, 'index']);
 Route::get('/', [HomeController::class, 'index']);
