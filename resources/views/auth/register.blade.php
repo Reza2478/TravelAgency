@@ -8,6 +8,13 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <link rel="stylesheet" href="/assets/css/register&login.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
 </head>
 
 <body>
@@ -117,7 +124,7 @@
                     </div>
                 </div>
                 <a href="/login">قبلا ثبت نام کرده اید؟ ورود</a>
-                <input type="submit" class="btn" value="ثبت نام">
+                <input type="submit" class="btns" value="ثبت نام">
             </form>
         </div>
         <div class="img">
@@ -125,78 +132,6 @@
         </div>
 
     </div>
-
-
-
-    <!-- <div class="cover">
-        <div class="masthead">
-            <div class="wrapper">
-                <div class="landing-nav">
-                    <ul>
-                        <li><a href="index.php">صفحه اصلی</a> </li>
-                        <li><a href="product.php">فروشگاه</a></li>
-                    </ul>
-                </div>
-                <div class="logo">
-                    <a href="#"><img alt="" src="assets/images/logo2.png" style="width: 180px"></a>
-                </div>
-            </div>
-        </div>
-        <div class="parent-form">
-            <h3><i class="fa fa-user"></i> ثبت نام</h3>
-            <div class="login">
-                <form action="/register" method="post">
-                    @csrf
-                    <label for="firstname">
-                        <b>نام</b>
-                    </label>
-                    <input class="Uname" name="firstname" id="firstname" type="text" placeholder="نام " required>
-                    <label for="lastname">
-                        <b>نام خانوادگی</b>
-                    </label>
-                    <input class="Uname" name="lastname" id="lastname" type="text" placeholder="نام خانوادگی " required>
-                    <label for="username">
-                        <b>نام کاربری</b>
-                    </label>
-                    <input class="Uname" name="username" id="username" type="text" type="text" placeholder="نام کاربری">
-                    @error('username')
-                    <span id="msg" class="invalid-feedback" role="alert">
-                        {{ $message }}
-                    </span>
-                    @enderror
-                    <label for="phonenumber">
-                        <b>شماره همراه</b>
-                    </label>
-                    <input class="Uname" name="phonenumber" id="phonenumber" type="text" type="text" placeholder="شماره همراه">
-                    @error('phonenumber')
-                    <span id="msg" class="invalid-feedback" role="alert">
-                        {{ $message }}
-                    </span>
-                    @enderror
-                    <label for="email">
-                        <b>پست الکترونیک</b>
-                    </label>
-                    <input class="Uname" name="email" id="email" type="text" type="text" placeholder="پست الکترونیک">
-                    <label for="password">
-                        <b>رمز عبور</b>
-                    </label>
-                    <input class="Uname" name="password" id="password" type="password" placeholder="رمز عبور">
-                    @error('password')
-                    <span id="msg" class="invalid-feedback" role="alert">
-                        {{ $message }}
-                    </span>
-                    @enderror
-                    <label for="password-confirm">
-                        <b>تکرار رمز عبور</b>
-                    </label>
-                    <input class="Uname" name="password_confirmation" id="password-confirm" type="password" placeholder="تکرار رمز عبور">
-                    <span><a href="/login">قبلا ثبت نام کرده اید؟ ورود</a></span>
-                    <br><br>
-                    <input class="log" type="submit" value="ثبت نام">
-                </form>
-            </div>
-        </div>
-    </div> -->
     <script type="text/javascript" src="assets/js/login&register.js"></script>
 
 </body>

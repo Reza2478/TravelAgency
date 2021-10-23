@@ -19,17 +19,24 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]
    -->
-    <script src="assets/js/jquery-1.11.3.min.js"></script>
-    <script src="assets/js/jquery.colorbox-min.js"></script>
-    <script src="assets/js/animatescroll.min.js"></script>
-    <script src="assets/js/responsiveslides.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+    <script src="/assets/js/jquery-1.11.3.min.js"></script>
+    <script src="/assets/js/jquery.colorbox-min.js"></script>
+    <script src="/assets/js/animatescroll.min.js"></script>
+    <script src="/assets/js/responsiveslides.js"></script>
+    <script src="/assets/js/owl.carousel.min.js"></script>
+    <script src="/assets/js/wow.min.js"></script>
+    <script src="/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
 
     <script>
         new WOW().init();
-
     </script>
 </head>
 
@@ -44,23 +51,23 @@
                     </ul>
                 </div>
                 @guest
-                    <div class="twice">
-                        <ul>
-                            <li>
-                                <a class="project" href="/register">ثبت نام</a>
-                            </li>
-                            <li>
-                                <a class="project" href="/login">ورود</a>
-                            </li>
-                        </ul>
-                    </div>
+                <div class="twice">
+                    <ul>
+                        <li>
+                            <a class="project" href="/register">ثبت نام</a>
+                        </li>
+                        <li>
+                            <a class="project" href="/login">ورود</a>
+                        </li>
+                    </ul>
+                </div>
                 @else
-                    <div class="welcome">
-                        <h2>
-                            {{ $user->firstname }} خوش آمدی
-                        </h2>
-                        <a href="/user">پنل کاربری</a>
-                    </div>
+                <div class="welcome">
+                    <h2>
+                        {{ $user->firstname }} خوش آمدی
+                    </h2>
+                    <a class="wa" href="/user">پنل کاربری</a>
+                </div>
 
                 @endguest
             </div>
@@ -76,22 +83,22 @@
                 <div class="landing-nav">
                     <ul>
                         <li>
-                            <a  onclick="$('#section-1').animatescroll();">فعالیت ها</a>
+                            <a onclick="$('#section-1').animatescroll();">فعالیت ها</a>
                         </li>
                         <li>
-                            <a  onclick="$('#section-2').animatescroll();">درباره ما</a>
+                            <a onclick="$('#section-2').animatescroll();">درباره ما</a>
                         </li>
                         <li>
                             <a onclick="$('#section-3').animatescroll();">چشم انداز</a>
                         </li>
                         <li>
-                            <a  onclick="$('#section-4').animatescroll();">تورها</a>
+                            <a onclick="$('#section-4').animatescroll();">تورها</a>
                         </li>
                         <li>
-                            <a  onclick="$('#section-5').animatescroll();">سوالات متداول</a>
+                            <a onclick="$('#section-5').animatescroll();">سوالات متداول</a>
                         </li>
                         <li>
-                            <a  onclick="$('#section-6').animatescroll();">تورهای تخفیفی</a>
+                            <a onclick="$('#section-6').animatescroll();">تورهای تخفیفی</a>
                         </li>
                         <li>
                             <a href="#" onclick="$('#section-7').animatescroll();">تماس با ما</a>
@@ -112,25 +119,25 @@
                 <div class="featured wow animated fadeIn">
                     <ul>
                         <li>
-                            <h3><i class="fa fa-globe"></i>+500 تور به سراسر جهان</h3>
+                            <h5><i class="fa fa-globe"></i>+500 تور به سراسر جهان</h5>
                             <p>
                                 سفر به شگفت انگیزترین مکان‌ها بدون خرید تور امکان پذیر نیست!
                             </p>
                         </li>
                         <li>
-                            <h3><i class="fa fa-money"></i>بهترین گارانتی قیمت تور</h3>
+                            <h5><i class="fa fa-money"></i>بهترین گارانتی قیمت تور</h5>
                             <p>
                                 کیفیت را فدای قیمت نکرده‌ایم فقط با کمترین نرخ ممکن می‌فروشیم!
                             </p>
                         </li>
                         <li>
-                            <h3><i class="far fa-smile"></i>بیش از 90% رضایت از تورها</h3>
+                            <h5><i class="far fa-smile"></i>بیش از 90% رضایت از تورها</h5>
                             <p>
                                 توانسته‌ایم رضایت 90% از باشگاه مشتریان 45,000 نفری را جلب کنیم!
                             </p>
                         </li>
                         <li>
-                            <h3><i class="fas fa-phone"></i>پشتیبانی 24 ساعته</h3>
+                            <h5><i class="fas fa-phone"></i>پشتیبانی 24 ساعته</h5>
                             <p>
                                 فقط کافیست در هر ساعت از شبانه روز با شماره 33143 – 026 تماس بگیرید!
                             </p>
@@ -183,37 +190,37 @@
                 <hr>
                 <div class="grid wow animated fadeIn">
                     @php
-                        $counter = 0;
+                    $counter = 0;
                     @endphp
                     @foreach ($tour as $item)
-                        @if ($item->sale == 0)
-                            <p style="display:none;">{{ $counter++ }}</p>
-                            <figure>
-                                <img src="/uploads/{{ $item->image }}" alt="#">
-                                <figcaption>
-                                    @if ($item->type === 'airplane')
-                                        <h2>تور هوایی {{ $item->to }}</h2>
-                                    @elseif ($item->type === 'train')
-                                        <h2>تور قطار {{ $item->to }}</h2>
-                                    @elseif ($item->type === 'bus')
-                                        <h2>تور اتوبوس {{ $item->to }}</h2>
-                                    @endif
-                                    <h4><i class="fa fa-map-marker"></i>مبدا : {{ $item->from }}</h4>
-                                    <h4><i class="fa fa-map-marker"></i>مقصد : {{ $item->to }}</h4>
-                                    <a href="tourdetail/{{ $item->id }}" class="more" id="myBtn">نمایش کامل</a>
-                                </figcaption>
-                            </figure>
-                        @endif
+                    @if ($item->sale == 0)
+                    <p style="display:none;">{{ $counter++ }}</p>
+                    <figure>
+                        <img src="/uploads/{{ $item->image }}" alt="#">
+                        <figcaption>
+                            @if ($item->type === 'airplane')
+                            <h2>تور هوایی {{ $item->to }}</h2>
+                            @elseif ($item->type === 'train')
+                            <h2>تور قطار {{ $item->to }}</h2>
+                            @elseif ($item->type === 'bus')
+                            <h2>تور اتوبوس {{ $item->to }}</h2>
+                            @endif
+                            <h5><i class="fa fa-map-marker"></i>مبدا : {{ $item->from }}</h5>
+                            <h5><i class="fa fa-map-marker"></i>مقصد : {{ $item->to }}</h5>
+                            <a href="tourdetail/{{ $item->id }}" class="more" id="myBtn">نمایش کامل</a>
+                        </figcaption>
+                    </figure>
+                    @endif
                     @break($counter == 4)
                     @endforeach
                     @if ($counter == 0)
-                        <div class="msg-tour">
-                            <p>آیتمی وجود ندارد</p>
-                        </div>
+                    <div class="msg-tour">
+                        <p>آیتمی وجود ندارد</p>
+                    </div>
                     @endif
                 </div>
                 @if ($counter != 0)
-                    <a href="tour" class="show-more">نمایش همه</a>
+                <a href="tour" class="show-more">نمایش همه</a>
                 @endif
 
             </div>
@@ -312,18 +319,18 @@
                 <hr>
                 <div id="owl-demo" class="wow animated fadeIn">
                     @foreach ($sale as $item)
-                        <div class="item">
-                            <a href="tourdetail/{{ $item->id }}">
-                                <figure class="figurefx pushup">
-                                    <img src="/uploads/{{ $item->image }}" alt="">
-                                    <figcaption>
-                                        <h2>تور {{ $item->to }}</h2>
-                                        <h4>مبدا : {{ $item->from }}<i class="fa fa-map-marker"></i></h4>
-                                        <h4>مقصد : {{ $item->to }}<i class="fa fa-map-marker"></i></h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
+                    <div class="item">
+                        <a href="tourdetail/{{ $item->id }}">
+                            <figure class="figurefx pushup">
+                                <img src="/uploads/{{ $item->image }}" alt="">
+                                <figcaption>
+                                    <h2>تور {{ $item->to }}</h2>
+                                    <h4>مبدا : {{ $item->from }}<i class="fa fa-map-marker"></i></h4>
+                                    <h4>مقصد : {{ $item->to }}<i class="fa fa-map-marker"></i></h4>
+                                </figcaption>
+                            </figure>
+                        </a>
+                    </div>
                     @endforeach
                 </div>
             </div>
@@ -338,19 +345,18 @@
                     <div class="content">
                         <section>
                             <header>آسان گشت</header>
-                            <a href="#">صفحه اصلی</a>
-                            <a href="#">درباره ما</a>
-                            <a href=#>سوالات متداول</a>
+                            <a href="/">صفحه اصلی</a>
+                            <a onclick="$('#section-2').animatescroll();">درباره ما</a>
+                            <a onclick="$('#section-5').animatescroll();">سوالات متداول</a>
                         </section>
                         <section>
                             <header>اطلاعات تکمیلی</header>
-                            <a href="#">تور لحظه آخری</a>
-                            <a href="#">تور مشهد</a>
-                            <a href="#">تور قشم</a>
-                            <a href="#">تور یزد</a>
-                            <a href="#">تور تبریز</a>
-                            <a href="#">تور اصفهان</a>
-                            <a href="#">تور شیراز</a>
+                            <a href="/tourchosen/مشهد">تور مشهد</a>
+                            <a href="/tourchosen/قشم">تور قشم</a>
+                            <a href="/tourchosen/یزد">تور یزد</a>
+                            <a href="/tourchosen/تبریز">تور تبریز</a>
+                            <a href="/tourchosen/اصفهان">تور اصفهان</a>
+                            <a href="/tourchosen/تهران">تور تهران</a>
                         </section>
                         <section>
                             <header>تماس با ما</header>

@@ -19,6 +19,13 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]
    -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
     <script src="assets/js/jquery-1.11.3.min.js"></script>
     <script src="assets/js/jquery.colorbox-min.js"></script>
     <script src="assets/js/animatescroll.min.js"></script>
@@ -29,7 +36,6 @@
 
     <script>
         new WOW().init();
-
     </script>
 </head>
 
@@ -71,23 +77,23 @@
                     </ul>
                 </div>
                 @guest
-                    <div class="twice">
-                        <ul>
-                            <li>
-                                <a class="project" href="/register">ثبت نام</a>
-                            </li>
-                            <li>
-                                <a class="project" href="/login">ورود</a>
-                            </li>
-                        </ul>
-                    </div>
+                <div class="twice">
+                    <ul>
+                        <li>
+                            <a class="project" href="/register">ثبت نام</a>
+                        </li>
+                        <li>
+                            <a class="project" href="/login">ورود</a>
+                        </li>
+                    </ul>
+                </div>
                 @else
-                    <div class="welcome">
-                        <h2>
-                            {{ $user->firstname }} خوش آمدی
-                        </h2>
-                        <a href="/user">پنل کاربری</a>
-                    </div>
+                <div class="welcome">
+                    <h2>
+                        {{ $user->firstname }} خوش آمدی
+                    </h2>
+                    <a class="wa" href="/user">پنل کاربری</a>
+                </div>
 
                 @endguest
             </div>
@@ -141,7 +147,7 @@
                             <form action="/tourchosen" method="post">
                                 @csrf
                                 <input name="city" type="text" class="search-input" placeholder="مقصد بعدی خود را جستجو کنید">
-                                <input class="btn" type="submit" value="جستجو"></input>
+                                <input class="btns" type="submit" value="جستجو"></input>
                             </form>
 
                         </div>
@@ -160,17 +166,19 @@
                 <hr>
                 <div class="content wow animated fadeIn">
                     @foreach ($airplane as $item)
-                        <article>
-                            <div class="post">
-                                <div class="right">
-                                    <img src="/uploads/{{$item->image}}" alt="#">
-                                </div>
+                    <article>
+                        <div class="post">
+                            <div class="right">
+                                <img src="/uploads/{{$item->image}}" alt="#">
+                            </div>
+                            <div class="left">     
                                 <h2>تور هوایی {{ $item->to }}</h2>
                                 <h4><i class="fa fa-map-marker"></i>مبدا : {{ $item->from }}</h4>
                                 <h4><i class="fa fa-map-marker"></i>مقصد : {{ $item->to }}</h4>
                                 <a href="tourdetail/{{$item->id}}" class="price" id="myBtn"><i class="fas fa-dollar-sign"></i>نمایش کامل</a>
                             </div>
-                        </article>
+                        </div>
+                    </article>
                     @endforeach
                 </div>
             </div>
@@ -199,21 +207,23 @@
                 <hr>
                 <div class="content wow animated fadeIn">
                     @foreach ($earth as $item)
-                        <article>
-                            <div class="post">
-                                <div class="right">
-                                    <img src="/uploads/{{$item->image}}" alt="#">
-                                </div>
+                    <article>
+                        <div class="post">
+                            <div class="right">
+                                <img src="/uploads/{{$item->image}}" alt="#">
+                            </div>
+                            <div class="left">
                                 @if ($item->type === 'train')
-                                    <h2>تور قطار {{ $item->to }}</h2>
+                                <h2>تور قطار {{ $item->to }}</h2>
                                 @elseif ($item->type === 'bus')
-                                    <h2>تور اتوبوس {{ $item->to }}</h2>
+                                <h2>تور اتوبوس {{ $item->to }}</h2>
                                 @endif
                                 <h4><i class="fa fa-map-marker"></i>مبدا : {{ $item->from }}</h4>
                                 <h4><i class="fa fa-map-marker"></i>مقصد : {{ $item->to }}</h4>
                                 <a href="tourdetail/{{$item->id}}" class="price"><i class="fas fa-dollar-sign"></i>نمایش کامل</a>
                             </div>
-                        </article>
+                        </div>
+                    </article>
                     @endforeach
                 </div>
             </div>
@@ -228,18 +238,18 @@
                 <hr>
                 <div id="owl-demo" class="wow animated fadeIn">
                     @foreach ($sale as $item)
-                        <div class="item">
-                            <a href="tourdetail/{{$item->id}}">
-                                <figure class="figurefx pushup">
-                                    <img src="/uploads/{{$item->image}}" alt="">
-                                    <figcaption>
-                                        <h2>تور {{ $item->to }}</h2>
-                                        <h4>مبدا : {{ $item->from }}<i class="fa fa-map-marker"></i></h4>
-                                        <h4>مقصد : {{ $item->to }}<i class="fa fa-map-marker"></i></h4>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </div>
+                    <div class="item">
+                        <a href="tourdetail/{{$item->id}}">
+                            <figure class="figurefx pushup">
+                                <img src="/uploads/{{$item->image}}" alt="">
+                                <figcaption>
+                                    <h2>تور {{ $item->to }}</h2>
+                                    <h4>مبدا : {{ $item->from }}<i class="fa fa-map-marker"></i></h4>
+                                    <h4>مقصد : {{ $item->to }}<i class="fa fa-map-marker"></i></h4>
+                                </figcaption>
+                            </figure>
+                        </a>
+                    </div>
                     @endforeach
                 </div>
             </div>
@@ -250,23 +260,21 @@
     <section>
         <div class="contact-landing" id="section-5">
             <footer>
-                <div class="art">
+            <div class="art">
                     <div class="content">
                         <section>
                             <header>آسان گشت</header>
-                            <a href="#">صفحه اصلی</a>
-                            <a href="#">درباره ما</a>
-                            <a href=#>سوالات متداول</a>
+                            <a href="/">صفحه اصلی</a>
+                            <a onclick="$('#section-2').animatescroll();">درباره ما</a>
                         </section>
                         <section>
                             <header>اطلاعات تکمیلی</header>
-                            <a href="#">تور لحظه آخری</a>
-                            <a href="#">تور مشهد</a>
-                            <a href="#">تور قشم</a>
-                            <a href="#">تور یزد</a>
-                            <a href="#">تور تبریز</a>
-                            <a href="#">تور اصفهان</a>
-                            <a href="#">تور شیراز</a>
+                            <a href="/tourchosen/مشهد">تور مشهد</a>
+                            <a href="/tourchosen/قشم">تور قشم</a>
+                            <a href="/tourchosen/یزد">تور یزد</a>
+                            <a href="/tourchosen/تبریز">تور تبریز</a>
+                            <a href="/tourchosen/اصفهان">تور اصفهان</a>
+                            <a href="/tourchosen/تهران">تور تهران</a>
                         </section>
                         <section>
                             <header>تماس با ما</header>

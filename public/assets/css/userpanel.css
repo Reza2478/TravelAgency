@@ -280,19 +280,26 @@
      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
  }
  .landing-nav {
-     grid-area: nav;
- }
- .landing-nav ul li {
-     float: right;
- }
- 
- .landing-nav ul li a {
-     color: #666;
-     display: block;
-     font-size: 15px;
-     padding: 0 15px;
-     line-height: 60px;
- }
+    grid-area: nav;    
+}
+.landing-nav ul{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin-bottom:0;
+}
+.landing-nav ul li {
+    float: right;
+    width: 110px;
+}
+
+.landing-nav ul li a {
+    color: #666;
+    display: block;
+    font-size: 15px;
+    padding: 20px 15px;
+    text-align: center;
+    text-decoration: none;
+}
  
  .landing-nav ul li a:hover {
      background: #e74c3c;
@@ -457,7 +464,10 @@
      cursor: pointer;
      text-align: center;
      display: block;
-     padding: 5px;
+     text-decoration: none;
+ }
+ .product .head span a:hover{
+     color: #d9d9d9;
  }
  
  .purchases {
@@ -524,7 +534,7 @@
  }
  
  .purchases .figure_parent figure figcaption h2 {
-     padding: 5px;
+     padding: 1px;
      font-size: 13px;
  }
  
@@ -551,6 +561,7 @@
      background-color: #25a65b;
      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.55);
      margin-bottom: 10px;
+     text-decoration: none;
  }
  
  

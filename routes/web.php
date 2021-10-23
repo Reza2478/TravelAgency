@@ -33,7 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('addtour/insert', [AdminController::class, 'insert']);
     Route::post('admin/addtimeline', [AdminController::class, 'addtimeline']);
     Route::post('admin/edit', [AdminController::class, 'edit']);
-    
+    Route::get('tourchosen/{city}', [TourchosenController::class, 'search']);
 });
 Route::get('tour', [TourController::class, 'index']);
 Route::get('/', [HomeController::class, 'index']);

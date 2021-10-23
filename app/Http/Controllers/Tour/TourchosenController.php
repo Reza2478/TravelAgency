@@ -18,5 +18,13 @@ class TourchosenController extends Controller
         $sale=Tour::where([['sale', '=', 1],['tag','=',$request->city]])->get();
         return view('tourchosen',compact('airplane','earth','sale','user'));
     }
+    public function search($city)
+    {
+        $user = Auth::user();
+        $airplane=Tour::where([['type', '=', 'airplane'],['sale','!=',1],['tag','=',$city]])->get();
+        $earth=Tour::where([['type', '!=', 'airplane'],['sale','!=',1],['tag','=',$city]])->get();
+        $sale=Tour::where([['sale', '=', 1],['tag','=',$city]])->get();
+        return view('tourchosen',compact('airplane','earth','sale','user'));
+    }
 }
 

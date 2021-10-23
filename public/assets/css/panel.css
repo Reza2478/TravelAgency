@@ -532,6 +532,7 @@ body {
     grid-row: 2/3;
     text-align: right;
     justify-content: center;
+    margin-left: 10px;
 }
 .card-single .icon i {
     font-size: 83px;

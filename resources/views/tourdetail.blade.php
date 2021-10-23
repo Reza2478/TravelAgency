@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 
 <head>
     <meta charset="utf-8">
@@ -7,6 +7,11 @@
     <title>tour</title>
     <link rel="stylesheet" href="/assets/css/tourdetail.css">
     <script src="https://kit.fontawesome.com/8e5597edbc.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 
 
@@ -108,19 +113,17 @@
                 <div class="content">
                     <section>
                         <header>آسان گشت</header>
-                        <a href="#">صفحه اصلی</a>
-                        <a href="#">درباره ما</a>
-                        <a href=#>سوالات متداول</a>
+                        <a href="/">صفحه اصلی</a>
+                        <a onclick="$('#section-2').animatescroll();">درباره ما</a>
                     </section>
                     <section>
                         <header>اطلاعات تکمیلی</header>
-                        <a href="#">تور لحظه آخری</a>
-                        <a href="#">تور مشهد</a>
-                        <a href="#">تور قشم</a>
-                        <a href="#">تور یزد</a>
-                        <a href="#">تور تبریز</a>
-                        <a href="#">تور اصفهان</a>
-                        <a href="#">تور شیراز</a>
+                        <a href="/tourchosen/مشهد">تور مشهد</a>
+                        <a href="/tourchosen/قشم">تور قشم</a>
+                        <a href="/tourchosen/یزد">تور یزد</a>
+                        <a href="/tourchosen/تبریز">تور تبریز</a>
+                        <a href="/tourchosen/اصفهان">تور اصفهان</a>
+                        <a href="/tourchosen/تهران">تور تهران</a>
                     </section>
                     <section>
                         <header>تماس با ما</header>
@@ -138,11 +141,6 @@
                         </div>
                     </section>
                 </div>
-                <div class="notice">
-                    © تمام حقوق برای asangasht.ir محفوظ است
-                    <strong>طراحی توسط رضا امینی زاده</strong>
-                </div>
-            </div>
         </footer>
     </div>
 </body>

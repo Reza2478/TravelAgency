@@ -87,17 +87,16 @@
                     </div>
                     <div class="item">
                         <label>هتل: </label>
-                        <input type="text" name="hotel" id="hotel">
+                        <input type="text" name="hotel">
                     </div>
                     <div class="item">
                         <label>خدمات: </label>
-                        <input type="text" name="services" id="services">
+                        <input type="text" name="services">
                     </div>
                     <div class="item">
                         <label>اقامت: </label>
-                        <input type="text" name="staytime" id="staytime">
+                        <input type="text" name="staytime">
                     </div>
-
                     <div class="btn">
                         <input type="submit" value="افزودن">
                     </div>
@@ -318,6 +317,7 @@
                                 <th>برنامه سفر</th>
                             </tr>
                             @foreach ($tour as $item)
+                            
                             <tr>
                                 <td>{{ $item->from }}</td>
                                 <td>{{ $item->to }}</td>

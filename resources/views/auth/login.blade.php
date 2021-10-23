@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="/assets/css/register&login.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
     <title>Login</title>
 </head>
 
@@ -27,7 +33,7 @@
                         <h5>نام کاربری</h5>
                         <input type="text" class="input" name="username" id="username">
                         @error('username')
-                        <span id="msg" class="invalid-feedback" role="alert">
+                        <span id="msg" class="invalid-feedbacks" role="alert">
                             {{ $message }}
                         </span>
                         @enderror
@@ -41,14 +47,14 @@
                         <h5>کلمه عبور</h5>
                         <input type="password" class="input" name="password" id="password" autocomplete="new-password">
                         @error('password')
-                        <span id="msg" class="invalid-feedback" role="alert">
+                        <span id="msg" class="invalid-feedbacks" role="alert">
                             {{ $message }}
                         </span>
                         @enderror
                     </div>
                 </div>
                 <a href="/register">حساب کاربری ندارید؟ ایجاد حساب</a>
-                <input type="submit" class="btn" value="ورود">
+                <input type="submit" class="btns" value="ورود">
             </form>
         </div>
         <div class="img">
@@ -56,39 +62,6 @@
         </div>
 
     </div>
-
-    <!---------------------------------------------------------------->
-
-
-    <!-- <div class="parent-form">
-            <h3><i class="fa fa-user"></i>ورود</h3>
-            <div class="login">
-                <form action="/login" method="post">
-                    @csrf
-                    <label for="username">
-                        <b>نام کاربری</b>
-                    </label>
-                    <input class="Uname" name="username" id="username" type="text" type="text" placeholder="نام کاربری">
-                    @error('username')
-                    <span id="msg" class="invalid-feedback" role="alert">
-                        {{ $message }}
-                    </span>
-                    @enderror
-                    <label for="password">
-                        <b>رمز عبور</b>
-                    </label>
-                    <input class="Uname" name="password" id="password" type="password" placeholder="رمز عبور">
-                    @error('password')
-                    <span id="msg" class="invalid-feedback" role="alert">
-                        {{ $message }}
-                    </span>
-                    @enderror
-                    <span><a href="/register">حساب کاربری ندارید؟ ایجاد حساب</a></span>
-                    <br><br>
-                    <input class="log" type="submit" value="ورود">
-                </form>
-            </div>
-        </div> -->
     <script type="text/javascript" src="assets/js/login&register.js"></script>
 </body>
 

@@ -23,11 +23,13 @@ modalCloseAdd.addEventListener("click", function () {
 });
 
 var modalBgTimeline = document.querySelector('.modal-bg-timeline');
-var mdlBtn=document.querySelector('.mdl-btn');
+var mdlBtn=document.querySelectorAll('.mdl-btn');
 var modalCloseTimeline=document.querySelector('.modal-close-timeline');
-mdlBtn.addEventListener("click", function () {
-    modalBgTimeline.classList.add("bg-active-timeline");
-});
+for (let i = 0; i < mdlBtn.length; i++) {
+    mdlBtn[i].addEventListener("click", function () {
+        modalBgTimeline.classList.add("bg-active-timeline");
+    });
+}
 
 modalCloseTimeline.addEventListener("click", function () {
     modalBgTimeline.classList.remove("bg-active-timeline");
