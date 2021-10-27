@@ -27,7 +27,7 @@ class UserAuthController extends Controller
     public function edit_interest(Request $request)
     {
         $user = Auth::user();
-        $user->interests()->attach($request->interest_id);
+        $user->interests()->sync($request->interest_id);
         return back();
     }
     public function cancel($id)

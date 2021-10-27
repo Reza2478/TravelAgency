@@ -60,13 +60,13 @@
                             <div class="div">
                                 <h5>نام کاربری</h5>
                                 <input type="text" class="input" name="username" id="username" required>
-                                @error('username')
-                                <span id="msg" class="invalid-feedback" role="alert">
-                                    {{ $message }}
-                                </span>
-                                @enderror
                             </div>
                         </div>
+                        @error('username')
+                        <span id="msg" class="invalid-feedbackss" role="alert">
+                            {{ $message }}
+                        </span>
+                        @enderror
                     </div>
                     <div class="item">
                         <div class="input-div">
@@ -76,22 +76,22 @@
                             <div class="div">
                                 <h5>شماره همراه</h5>
                                 <input type="text" class="input" name="phonenumber" id="phonenumber" required>
-                                @error('phonenumber')
-                                <span id="msg" class="invalid-feedback" role="alert">
-                                    {{ $message }}
-                                </span>
-                                @enderror
                             </div>
                         </div>
+                        @error('phonenumber')
+                        <span id="msg" class="invalid-feedbackss" role="alert">
+                            {{ $message }}
+                        </span>
+                        @enderror
                     </div>
                 </div>
                 <div class="input-div">
                     <div class="i">
                         <i class="fa fa-envelope"></i>
-                            </div>
-                            <div class=" div">
-                            <h5>پست الکترونیک</h5>
-                            <input type="email" class="input" name="email" id="email">
+                    </div>
+                    <div class=" div">
+                        <h5>پست الکترونیک</h5>
+                        <input type="email" class="input" name="email" id="email">
                     </div>
                 </div>
                 <div class="contain">
@@ -103,13 +103,13 @@
                             <div class="div">
                                 <h5>کلمه عبور</h5>
                                 <input type="password" class="input" name="password" id="password" autocomplete="new-password">
-                                @error('password')
-                                <span id="msg" class="invalid-feedback" role="alert">
-                                    {{ $message }}
-                                </span>
-                                @enderror
                             </div>
                         </div>
+                        @error('password')
+                        <span id="msg" class="invalid-feedbackss" role="alert">
+                            {{ $message }}
+                        </span>
+                        @enderror
                     </div>
                     <div class="item">
                         <div class="input-div">

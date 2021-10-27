@@ -22,20 +22,6 @@ modalCloseAdd.addEventListener("click", function () {
     modalBgAdd.classList.remove("bg-active-add");
 });
 
-var modalBgTimeline = document.querySelector('.modal-bg-timeline');
-var mdlBtn=document.querySelectorAll('.mdl-btn');
-var modalCloseTimeline=document.querySelector('.modal-close-timeline');
-for (let i = 0; i < mdlBtn.length; i++) {
-    mdlBtn[i].addEventListener("click", function () {
-        modalBgTimeline.classList.add("bg-active-timeline");
-    });
-}
-
-modalCloseTimeline.addEventListener("click", function () {
-    modalBgTimeline.classList.remove("bg-active-timeline");
-});
-
-
 function edit(item) {
     document.getElementById("id").value = item.id;
     document.getElementById("from").value = item.from;

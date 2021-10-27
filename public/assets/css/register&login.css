@@ -248,9 +248,13 @@ a:hover{
 
 .invalid-feedbacks{
 	color: red;
-	background-color:#999 ;
-	margin-bottom: 55px;
-	display: block;
+    display: block;
+    width: 361px;
+}
+.invalid-feedbackss{
+	color: red;
+    display: block;
+    width: 222px;
 }
 
 @media screen and (max-width: 1050px){

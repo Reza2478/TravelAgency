@@ -96,11 +96,11 @@
                                 @foreach($all_interests as $interest)
                                 @if(in_array($interest->id,$user_interests))
                                 <span>
-                                    <input type="checkbox" name="interest_id[]" value="{{ $interest->id }}" checked>{{ $interest->cityname }}
+                                    <input type="checkbox" name="interest_id[]" value="{{ $interest->id }}" checked> {{ $interest->cityname }}
                                 </span>
                                 @else
                                 <span>
-                                    <input type="checkbox" name="interest_id[]" value="{{ $interest->id }}">{{ $interest->cityname }}
+                                    <input type="checkbox" name="interest_id[]" value="{{ $interest->id }}"> {{ $interest->cityname }}
                                 </span>
                                 @endif
                                 <br>

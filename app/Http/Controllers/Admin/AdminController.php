@@ -13,14 +13,13 @@ use Kavenegar;
 
 class AdminController extends Controller
 {
-   
+
     public function index()
     {
         $tour = Tour::all();
         $user = User::all();
-        $timeline = Timeline::all();
         $purchase = Purchase::all();
-        return view('admin', compact('tour', 'user', 'purchase','timeline'));
+        return view('admin', compact('tour', 'user', 'purchase'));
     }
     public function deletetour($id)
     {
@@ -32,6 +31,26 @@ class AdminController extends Controller
     {
         $temp = User::find($id);
         $temp->delete();
+        return back();
+    }
+    public function deletetimeline($id)
+    {
+        $temp = Timeline::find($id);
+        $temp->delete();
+        return back();
+    }
+    public function edittimeline(Request $request)
+    {
+        $updateDetails = [
+            'city' => $request->city,
+            'hotel' => $request->hotel,
+            'services' => $request->services,
+            'staytime' => $request->staytime,
+        ];
+
+        DB::table('timelines')
+            ->where('id', $request->id)
+            ->update($updateDetails);
         return back();
     }
     public function edit(Request $request)
@@ -58,11 +77,10 @@ class AdminController extends Controller
             ->update($updateDetails);
 
         $users = User::all();
-        if($request->sale==1)
-        {
+        if ($request->sale == 1) {
             foreach ($users as $item) {
                 foreach ($item->interests as $interest) {
-                    if ($interest->cityname == $request->tag) {
+                    if ($interest->cityname === $request->tag) {
                         try {
                             $sender = "1000596446";        //This is the Sender number
 
@@ -97,7 +115,7 @@ class AdminController extends Controller
 
         return back();
     }
-    
+
     public function insert(Request $request)
     {
         $image = $request->file('image');
@@ -121,16 +139,21 @@ class AdminController extends Controller
         Tour::create($data);
         return redirect('admin');
     }
+    public function timeline($id)
+    {
+        $timeline = Timeline::where('tour_id', '=', $id)->get();
+        return view('addtimeline', compact('timeline', 'id'));
+    }
     public function addtimeline(Request $request)
     {
         $data = [
             'city' => $request->city,
             'staytime' => $request->staytime,
             'hotel' => $request->hotel,
-            'services'=>$request->services,
+            'services' => $request->services,
             'tour_id' => $request->tour_id,
-        ];   
+        ];
         Timeline::create($data);
-        return redirect('admin');
+        return redirect("addtimeline/" . $request->tour_id);
     }
 }

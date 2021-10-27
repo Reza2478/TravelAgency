@@ -26,13 +26,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('admin', [AdminController::class, 'index']);
     Route::get('admin/{id}/deletetour', [AdminController::class, 'deletetour']);
     Route::get('admin/{id}/deleteuser', [AdminController::class, 'deleteuser']);
+    Route::get('addtimeline/{id}/deletetimeline', [AdminController::class, 'deletetimeline']);
     Route::get('user', [UserAuthController::class, 'index']);
     Route::post('user/edit', [UserAuthController::class, 'edit_interest']);
     Route::post('user/buy', [TourdetailController::class, 'buy']);
     Route::get('user/{id}/cancel', [UserAuthController::class, 'cancel']);
     Route::post('addtour/insert', [AdminController::class, 'insert']);
+    Route::get('addtimeline/{id}', [AdminController::class, 'timeline']);
     Route::post('admin/addtimeline', [AdminController::class, 'addtimeline']);
     Route::post('admin/edit', [AdminController::class, 'edit']);
+    Route::post('addtimeline/edittimeline', [AdminController::class, 'edittimeline']);
     Route::get('tourchosen/{city}', [TourchosenController::class, 'search']);
 });
 Route::get('tour', [TourController::class, 'index']);

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/assets/css/register&login.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-    
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -32,13 +32,13 @@
                     <div class="div">
                         <h5>نام کاربری</h5>
                         <input type="text" class="input" name="username" id="username">
-                        @error('username')
-                        <span id="msg" class="invalid-feedbacks" role="alert">
-                            {{ $message }}
-                        </span>
-                        @enderror
                     </div>
                 </div>
+                @error('username')
+                <span id="msg" class="invalid-feedbacks" role="alert">
+                    {{ $message }}
+                </span>
+                @enderror
                 <div class="input-div pass">
                     <div class="i">
                         <i class="fas fa-lock"></i>
@@ -46,13 +46,13 @@
                     <div class="div">
                         <h5>کلمه عبور</h5>
                         <input type="password" class="input" name="password" id="password" autocomplete="new-password">
-                        @error('password')
-                        <span id="msg" class="invalid-feedbacks" role="alert">
-                            {{ $message }}
-                        </span>
-                        @enderror
                     </div>
                 </div>
+                @error('password')
+                <span id="msg" class="invalid-feedbacks" role="alert">
+                    {{ $message }}
+                </span>
+                @enderror
                 <a href="/register">حساب کاربری ندارید؟ ایجاد حساب</a>
                 <input type="submit" class="btns" value="ورود">
             </form>

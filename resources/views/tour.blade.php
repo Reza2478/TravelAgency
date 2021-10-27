@@ -243,9 +243,9 @@
                             <figure class="figurefx pushup">
                                 <img src="/uploads/{{$item->image}}" alt="">
                                 <figcaption>
-                                    <h2>تور {{ $item->to }}</h2>
-                                    <h4>مبدا : {{ $item->from }}<i class="fa fa-map-marker"></i></h4>
-                                    <h4>مقصد : {{ $item->to }}<i class="fa fa-map-marker"></i></h4>
+                                    <h4>تور {{ $item->to }}</h4>
+                                    <h6>مبدا : {{ $item->from }}<i class="fa fa-map-marker"></i></h6>
+                                    <h6>مقصد : {{ $item->to }}<i class="fa fa-map-marker"></i></h6>
                                 </figcaption>
                             </figure>
                         </a>

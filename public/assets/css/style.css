@@ -405,9 +405,9 @@ hr {
 }
 
 .featured ul li {
-    width: 21%;
+    width: 22%;
     float: right;
-    margin: 24px;
+    margin: 18px;
     position: relative;
 }
 
@@ -755,7 +755,7 @@ figure.pushup figcaption h2 {
 
 figure.pushup figcaption h4 {
     padding-bottom: 10px;
-    text-align: right;
+    text-align: center;
     text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1)
 }
 

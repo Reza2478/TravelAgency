@@ -13,13 +13,7 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/panel.css">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-      <![endif]
-   -->
+
     <script src="assets/js/jquery-1.11.3.min.js"></script>
     <script src="assets/js/owl.carousel.min.js"></script>
 
@@ -39,71 +33,7 @@
             </div>
         </div>
 
-        <?php
-        $temp = "<script>document.getElementById('tp')</script>";
 
-        ?>
-        <div>
-            <table>
-                <tbody>
-                    <tr>
-                        <th>توقف</th>
-                        <th>هتل</th>
-                        <th>خدمات</th>
-                        <th>اقامت</th>
-                        <th>حذف</th>
-
-                    </tr>
-                    @foreach ($timeline as $item)
-                    
-                    @if($item->tour_id = 1) 
-                        <tr>
-                            <td>{{$item->city}}</td>
-                            <td>{{$item->hotel}}</td>
-                            <td>{{$item->services}}</td>
-                            <td>{{$item->staytime}}</td>
-                        </tr>
-                    @endif
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-
-
-        <div class="modal-bg-timeline">
-            <div class="modal">
-                <div class="head">
-                    <h1>برنامه سفر</h1>
-                    <hr />
-                </div>
-
-
-                <form action="/admin/addtimeline" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <input type="text" name="tour_id" id="tour_id" style="display:none;">
-                    <div class="item">
-                        <label>توقف:</label>
-                        <input type="text" name="city" id="city">
-                    </div>
-                    <div class="item">
-                        <label>هتل: </label>
-                        <input type="text" name="hotel">
-                    </div>
-                    <div class="item">
-                        <label>خدمات: </label>
-                        <input type="text" name="services">
-                    </div>
-                    <div class="item">
-                        <label>اقامت: </label>
-                        <input type="text" name="staytime">
-                    </div>
-                    <div class="btn">
-                        <input type="submit" value="افزودن">
-                    </div>
-                    <span class="modal-close-timeline"><i class="fa fa-times"></i></span>
-                </form>
-            </div>
-        </div>
 
         <div class="modal-bg">
             <div class="modal">
@@ -317,7 +247,7 @@
                                 <th>برنامه سفر</th>
                             </tr>
                             @foreach ($tour as $item)
-                            
+
                             <tr>
                                 <td>{{ $item->from }}</td>
                                 <td>{{ $item->to }}</td>
@@ -345,7 +275,7 @@
                                     <a class="modal-btn" onclick="edit({{$item}})"><i class="fa fa-link"></i></a>
                                 </td>
                                 <td>
-                                    <a class="mdl-btn" onclick="addtimeline({{$item}})"><i class="fa fa-plus"></i></a>
+                                    <a class="mdl-btn" href="addtimeline/{{ $item->id }}"><i class="fa fa-file-text"></i></a>
                                 </td>
                             </tr>
 
