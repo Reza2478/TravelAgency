@@ -330,7 +330,8 @@ body {
 }
 
 .modal-bg,
-.modal-bg-add {
+.modal-bg-add,
+.modal-bg-info {
     position: fixed;
     top: 0;
     left: 0;
@@ -346,7 +347,8 @@ body {
     color: #fff;
 }
 .modal-close,
-.modal-close-add {
+.modal-close-add,
+.modal-close-info {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -354,12 +356,14 @@ body {
     cursor: pointer;
 }
 .modal-close i,
-.modal-close-add i {
+.modal-close-add i,
+.modal-close-info i {
     font-size: 25px;
 }
 
 .bg-active,
-.bg-active-add {
+.bg-active-add,
+.bg-active-info {
     visibility: visible;
     opacity: 1;
 }
@@ -390,6 +394,7 @@ body {
     border: 3px solid #25a65b;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
     text-align: center;
+    font-family: academy;
 }
 .modal form label {
     text-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
@@ -434,6 +439,7 @@ body {
     grid-row: 5/6;
     text-align: center;
 }
+
 .add-btn a {
     padding: 20px;
     background: #25a65b;
@@ -443,6 +449,22 @@ body {
     cursor: pointer;
 }
 
+.edit-info {
+    grid-row: 3/4;
+    text-align: center;
+}
+.edit-info a {
+    padding: 7px;
+    background: #25a65b;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.edit-info a:hover {
+    background: #444;
+    opacity: 0.7;
+}
 .add-btn a:hover {
     background: #444;
     opacity: 0.7;
@@ -475,6 +497,7 @@ body {
     grid-row: 8/9;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: minmax(20px, auto);
+    grid-template-areas: ". outa .";
 }
 .out a {
     grid-area: outa;
@@ -482,7 +505,7 @@ body {
     background: #25a65b;
     border-radius: 5px;
     color: #fff;
-    position: absolute;
+    height: 50px;
     margin: 0 auto;
 }
 .out a:hover {

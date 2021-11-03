@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\User;
+
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Interest;
 use App\Models\Purchase;
 use App\Models\Tour;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class UserAuthController extends Controller
@@ -18,11 +20,11 @@ class UserAuthController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $details=$user->load(['purchases.tour']);
-        $user_interests=array_column($user->interests->toArray(),'id');
-        $all_interests=Interest::all();
-        $count=count($user_interests);
-        return view('user',compact('user','details','all_interests','user_interests','count'));
+        $details = $user->load(['purchases.tour']);
+        $user_interests = array_column($user->interests->toArray(), 'id');
+        $all_interests = Interest::all();
+        $count = count($user_interests);
+        return view('user', compact('user', 'details', 'all_interests', 'user_interests', 'count'));
     }
     public function edit_interest(Request $request)
     {
@@ -30,20 +32,45 @@ class UserAuthController extends Controller
         $user->interests()->sync($request->interest_id);
         return back();
     }
+    public function edit_information(Request $request)
+    {
+        if ($request->password !== null) {
+            $updateDetails = [
+                'firstname' => $request->firstname,
+                'lastname' => $request->lastname,
+                'phonenumber' => $request->phonenumber,
+                'email' => $request->email,
+                'username' => $request->username,
+                'password' => bcrypt($request->password),
+            ];
+        } else {
+            $updateDetails = [
+                'firstname' => $request->firstname,
+                'lastname' => $request->lastname,
+                'phonenumber' => $request->phonenumber,
+                'email' => $request->email,
+                'username' => $request->username,
+            ];
+        }
+        DB::table('users')
+            ->where('id', $request->id)
+            ->update($updateDetails);
+        return back();
+    }
     public function cancel($id)
     {
         $user = Auth::user();
-        $temp=Purchase::find($id);
-        $tour_id=$temp->tour_id;
-        $number=$temp->number;
-        $tour=Tour::find($tour_id);
-        $amount=$tour->amount*$number;
-        $credit=$user->credit;
-        $result=$credit+$amount;
-        $capacity=$tour->capacity+$number;
+        $temp = Purchase::find($id);
+        $tour_id = $temp->tour_id;
+        $number = $temp->number;
+        $tour = Tour::find($tour_id);
+        $amount = $tour->amount * $number;
+        $credit = $user->credit;
+        $result = $credit + $amount;
+        $capacity = $tour->capacity + $number;
         User::where('id', $user->id)->update(['credit' => $result]);
         Purchase::where('id', $temp->id)->update(['cancel' => 1]);
-        Tour::where('id', $tour_id)->update(['capacity'=>$capacity]);
+        Tour::where('id', $tour_id)->update(['capacity' => $capacity]);
         return redirect('user');
     }
 }

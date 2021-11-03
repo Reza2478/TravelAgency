@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Tour;
 use App\Models\User;
@@ -16,10 +17,11 @@ class AdminController extends Controller
 
     public function index()
     {
+        $adm = Auth::user();
         $tour = Tour::all();
         $user = User::all();
         $purchase = Purchase::all();
-        return view('admin', compact('tour', 'user', 'purchase'));
+        return view('admin', compact('adm', 'tour', 'user', 'purchase'));
     }
     public function deletetour($id)
     {
@@ -52,6 +54,32 @@ class AdminController extends Controller
             ->where('id', $request->id)
             ->update($updateDetails);
         return back();
+    }
+    public function editinfo(Request $request)
+    {
+        if ($request->password !== null) {
+            $updateDetails = [
+                'firstname' => $request->firstname,
+                'lastname' => $request->lastname,
+                'phonenumber' => $request->phonenumber,
+                'email' => $request->email,
+                'username' => $request->username,
+                'password' => bcrypt($request->password),
+            ];
+        } else {
+            $updateDetails = [
+                'firstname' => $request->firstname,
+                'lastname' => $request->lastname,
+                'phonenumber' => $request->phonenumber,
+                'email' => $request->email,
+                'username' => $request->username,
+            ];
+        }
+        DB::table('users')
+            ->where('id', $request->idi)
+            ->update($updateDetails);
+        return back();
+    
     }
     public function edit(Request $request)
     {

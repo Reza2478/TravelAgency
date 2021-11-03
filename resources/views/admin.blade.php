@@ -33,8 +33,6 @@
             </div>
         </div>
 
-
-
         <div class="modal-bg">
             <div class="modal">
                 <div class="head">
@@ -116,6 +114,9 @@
             <div class="add-btn">
                 <a class="modal-button">افزودن تور</a>
             </div>
+            <div class="edit-info">
+                <a onclick="editinfo({{$adm}})" class="modal-info">ویرایش اطلاعات</a>
+            </div>
             <div class="modal-bg-add">
                 <div class="modal">
                     <div class="head">
@@ -186,6 +187,46 @@
                             <input type="submit" value="افزودن">
                         </div>
                         <span class="modal-close-add"><i class="fa fa-times"></i></span>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-bg-info">
+                <div class="modal">
+                    <div class="head">
+                        <h1>ویرایش اطلاعات</h1>
+                        <hr />
+                    </div>
+                    <form action="/admin/editinfo" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <input type="text" name="idi" id="idi" style="display:none;">
+                        <div class="item">
+                            <label>نام:</label>
+                            <input type="text" name="firstname" id="firstname">
+                        </div>
+                        <div class="item">
+                            <label>نام خانوادگی: </label>
+                            <input type="text" name="lastname" id="lastname">
+                        </div>
+                        <div class="item">
+                            <label>ایمیل: </label>
+                            <input type="text" name="email" id="email">
+                        </div>
+                        <div class="item">
+                            <label>شماره موبایل: </label>
+                            <input type="text" name="phonenumber" id="phonenumber">
+                        </div>
+                        <div class="item">
+                            <label>نام کاربری: </label>
+                            <input type="text" name="username" id="username">
+                        </div>
+                        <div class="item">
+                            <label> پسورد: </label>
+                            <input type="text" name="password" id="password" placeholder="برای تعویض پسورد فیلد را پر کنید">
+                        </div>
+                        <div class="btn">
+                            <input type="submit" value="ثبت">
+                        </div>
+                        <span class="modal-close-info"><i class="fa fa-times"></i></span>
                     </form>
                 </div>
             </div>
@@ -278,8 +319,6 @@
                                     <a class="mdl-btn" href="addtimeline/{{ $item->id }}"><i class="fa fa-file-text"></i></a>
                                 </td>
                             </tr>
-
-
                             @endforeach
                         </tbody>
                     </table>
