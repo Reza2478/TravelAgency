@@ -7,6 +7,7 @@ use App\Http\Controllers\Tour\TourchosenController;
 use App\Http\Controllers\Tour\TourdetailController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\User\UserAuthController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 
 
 
@@ -45,4 +46,9 @@ Route::get('/', [HomeController::class, 'index']);
 Route::post('tourchosen', [TourchosenController::class, 'index']);
 
 Auth::routes();
+Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm']);
+Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+
 
