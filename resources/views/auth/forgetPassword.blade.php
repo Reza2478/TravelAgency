@@ -6,7 +6,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Reset Password</div>
+                    <div class="card-header">تغییر رمز عبور</div>
                     <div class="card-body">
 
                         @if (Session::has('message'))
@@ -18,7 +18,7 @@
                         <form action="{{ route('forget.password.post') }}" method="POST">
                             @csrf
                             <div class="form-group row">
-                                <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
+                                <label for="email_address" class="col-md-4 col-form-label text-md-right">ایمیل</label>
                                 <div class="col-md-6">
                                     <input type="text" id="email_address" class="form-control" name="email" required autofocus>
                                     @if ($errors->has('email'))
@@ -28,7 +28,7 @@
                             </div>
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Send Password Reset Link
+                                    ارسال لینک تغییر رمز عبور
                                 </button>
                             </div>
                         </form>

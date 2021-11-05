@@ -54,7 +54,7 @@
                 </span>
                 @enderror
                 <a href="/register">حساب کاربری ندارید؟ ایجاد حساب</a>
-                <a href="/forget-password">Reset Password</a>
+                <a href="/forget-password">رمز عبور خود را فراموش کرده اید؟</a>
                 <input type="submit" class="btns" value="ورود">
             </form>
         </div>
