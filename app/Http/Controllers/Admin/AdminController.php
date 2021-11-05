@@ -26,137 +26,183 @@ class AdminController extends Controller
     }
     public function deletetour($id)
     {
+        $user = Auth::user();
         $temp = Tour::find($id);
-        $temp->delete();
-        return back();
+        if ($user->role == 'admin') {
+            $temp->delete();
+            return back();
+        } else {
+            return view('forbidden');
+        }
     }
     public function deleteuser($id)
     {
-        $temp = User::find($id);
-        $temp->delete();
-        return back();
+        $user = Auth::user();
+        if ($user->role == 'admin') {
+            $temp = User::find($id);
+            $temp->delete();
+            return back();
+        } else {
+            return view('forbidden');
+        }
     }
     public function deletetimeline($id)
     {
-        $temp = Timeline::find($id);
-        $temp->delete();
-        return back();
+        $user = Auth::user();
+        if ($user->role == 'admin') {
+            $temp = Timeline::find($id);
+            $temp->delete();
+            return back();
+        } else {
+            return view('forbidden');
+        }
     }
     public function edittimeline(Request $request)
     {
-        $updateDetails = [
-            'city' => $request->city,
-            'hotel' => $request->hotel,
-            'services' => $request->services,
-            'staytime' => $request->staytime,
-        ];
+        $user = Auth::user();
+        if ($user->role == 'admin') {
+            $updateDetails = [
+                'city' => $request->city,
+                'hotel' => $request->hotel,
+                'services' => $request->services,
+                'staytime' => $request->staytime,
+            ];
 
-        DB::table('timelines')
-            ->where('id', $request->id)
-            ->update($updateDetails);
-        return back();
+            DB::table('timelines')
+                ->where('id', $request->id)
+                ->update($updateDetails);
+            return back();
+        } else {
+            return view('forbidden');
+        }
     }
     public function editinfo(Request $request)
     {
-        if ($request->password !== null) {
-            $updateDetails = [
-                'firstname' => $request->firstname,
-                'lastname' => $request->lastname,
-                'phonenumber' => $request->phonenumber,
-                'email' => $request->email,
-                'username' => $request->username,
-                'password' => bcrypt($request->password),
-            ];
+        $user = Auth::user();
+        if ($user->role == 'admin') {
+            if ($request->password !== null) {
+                $updateDetails = [
+                    'firstname' => $request->firstname,
+                    'lastname' => $request->lastname,
+                    'phonenumber' => $request->phonenumber,
+                    'email' => $request->email,
+                    'username' => $request->username,
+                    'password' => bcrypt($request->password),
+                ];
+            } else {
+                $updateDetails = [
+                    'firstname' => $request->firstname,
+                    'lastname' => $request->lastname,
+                    'phonenumber' => $request->phonenumber,
+                    'email' => $request->email,
+                    'username' => $request->username,
+                ];
+            }
+            DB::table('users')
+                ->where('id', $request->idi)
+                ->update($updateDetails);
+            return back();
         } else {
-            $updateDetails = [
-                'firstname' => $request->firstname,
-                'lastname' => $request->lastname,
-                'phonenumber' => $request->phonenumber,
-                'email' => $request->email,
-                'username' => $request->username,
-            ];
+            return view('forbidden');
         }
-        DB::table('users')
-            ->where('id', $request->idi)
-            ->update($updateDetails);
-        return back();
-    
     }
     public function edit(Request $request)
     {
-        $updateDetails = [
-            'from' => $request->from,
-            'to' => $request->to,
-            'amount' => $request->amount,
-            'capacity' => $request->capacity,
-            'departuredate' => $request->departuredate,
-            'returndate' => $request->returndate,
-            'timewent' => $request->timewent,
-            'timeback' => $request->timeback,
-            'tag' => $request->tag,
-            'type' => $request->type,
-            'travelcompany' => $request->travelcompany,
-            'image' => $request->image,
-            'staytime' => $request->staytime,
-            'sale' => $request->sale,
-        ];
+        $user = Auth::user();
+        if ($user->role == 'admin') {
 
-        DB::table('tours')
-            ->where('id', $request->id)
-            ->update($updateDetails);
+            $updateDetails = [
+                'from' => $request->from,
+                'to' => $request->to,
+                'amount' => $request->amount,
+                'capacity' => $request->capacity,
+                'departuredate' => $request->departuredate,
+                'returndate' => $request->returndate,
+                'timewent' => $request->timewent,
+                'timeback' => $request->timeback,
+                'tag' => $request->tag,
+                'type' => $request->type,
+                'travelcompany' => $request->travelcompany,
+                'image' => $request->image,
+                'staytime' => $request->staytime,
+                'sale' => $request->sale,
+            ];
 
-        $users = User::all();
-        if ($request->sale == 1) {
-            foreach ($users as $item) {
-                foreach ($item->interests as $interest) {
-                    if ($interest->cityname === $request->tag) {
-                        sendMessage::dispatch($item,$request->tag);
+            DB::table('tours')
+                ->where('id', $request->id)
+                ->update($updateDetails);
+
+            $users = User::all();
+            if ($request->sale == 1) {
+                foreach ($users as $item) {
+                    foreach ($item->interests as $interest) {
+                        if ($interest->cityname === $request->tag) {
+                            sendMessage::dispatch($item, $request->tag);
+                        }
                     }
                 }
             }
+            return back();
+        } else {
+            return view('forbidden');
         }
-
-        return back();
     }
 
     public function insert(Request $request)
     {
-        $image = $request->file('image');
-        $imagename = time() . '.' . $image->getClientOriginalExtension();
-        $image->move(public_path('uploads'), $imagename);
-        $data = [
-            'from' => $request->from,
-            'to' => $request->to,
-            'amount' => $request->amount,
-            'capacity' => $request->capacity,
-            'departuredate' => $request->departuredate,
-            'returndate' => $request->returndate,
-            'timewent' => $request->timewent,
-            'timeback' => $request->timeback,
-            'tag' => $request->tag,
-            'type' => $request->type,
-            'travelcompany' => $request->travelcompany,
-            'image' => $imagename,
-            'staytime' => $request->staytime,
-        ];
-        Tour::create($data);
-        return redirect('admin');
+        $user = Auth::user();
+        if ($user->role == 'admin') {
+            $image = $request->file('image');
+            $imagename = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('uploads'), $imagename);
+            $data = [
+                'from' => $request->from,
+                'to' => $request->to,
+                'amount' => $request->amount,
+                'capacity' => $request->capacity,
+                'departuredate' => $request->departuredate,
+                'returndate' => $request->returndate,
+                'timewent' => $request->timewent,
+                'timeback' => $request->timeback,
+                'tag' => $request->tag,
+                'type' => $request->type,
+                'travelcompany' => $request->travelcompany,
+                'image' => $imagename,
+                'staytime' => $request->staytime,
+            ];
+            Tour::create($data);
+            return redirect('admin');
+        } else {
+            return view('forbidden');
+        }
     }
+
     public function timeline($id)
     {
-        $timeline = Timeline::where('tour_id', '=', $id)->get();
-        return view('addtimeline', compact('timeline', 'id'));
+        $user = Auth::user();
+        if ($user->role == 'admin') {
+            $timeline = Timeline::where('tour_id', '=', $id)->get();
+            return view('addtimeline', compact('timeline', 'id'));
+        } else {
+            return view('forbidden');
+        }
     }
+
     public function addtimeline(Request $request)
     {
-        $data = [
-            'city' => $request->city,
-            'staytime' => $request->staytime,
-            'hotel' => $request->hotel,
-            'services' => $request->services,
-            'tour_id' => $request->tour_id,
-        ];
-        Timeline::create($data);
-        return redirect("addtimeline/" . $request->tour_id);
+        $user = Auth::user();
+        if ($user->role == 'admin') {
+            $data = [
+                'city' => $request->city,
+                'staytime' => $request->staytime,
+                'hotel' => $request->hotel,
+                'services' => $request->services,
+                'tour_id' => $request->tour_id,
+            ];
+            Timeline::create($data);
+            return redirect("addtimeline/" . $request->tour_id);
+        } else {
+            return view('forbidden');
+        }
     }
 }
